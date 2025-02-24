@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tech CV - Gift Mthombeni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+        }
+        header {
+            background: linear-gradient(to right, #3a3a6c, #1e1e2f);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            margin: 0;
+            color: #00d4ff;
+        }
+        header p {
+            font-size: 1.1em;
+            color: #c0c0c0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #29293d;
+        }
+        nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            background-color: #1e1e2f;
+            border-bottom: 3px solid #00d4ff;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        .about h2 {
+            color: #00d4ff;
+        }
+        .about p {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        .skills, .projects, .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background-color: #29293d;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #29293d;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            color: #c0c0c0;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gift Mthombeni</h1>
+        <p>Energy Analyst| Electrical Engineering Student</p>
+    </header>
+    <nav>
+        <a href="#" data-tab="about" class="active">About</a>
+        <a href="#" data-tab="skills">Skills</a>
+        <a href="#" data-tab="projects">Projects</a>
+        <a href="#" data-tab="certificates">Certificates</a>
+        <a href="#" data-tab="contact">Contact</a>
+    </nav>
+
+  <div id="about" class="content active">
+    <div class="about">
+        <img src="DSC_8829.jpg" alt="Gift Mthombeni">
+        <h2>About Me</h2>
+        <p>
+            Hi there! I'm <strong>Gift Mthombeni</strong>, a Final Year Electrical Engineering student at Cape Peninsula University of Technology (CPUT) and a passionate tech enthusiast. My interests lie in energy studies, with a strong curiosity about emerging technologies, particularly in <strong>renewable energy</strong>—including wind turbines and hydrogen production.
+        <p>
+            My journey into engineering and technology began with a deep fascination for energy systems and how innovation can enhance their efficiency. Over time, this curiosity evolved into a passion for developing impactful solutions. Whether it's building AI-driven applications and deploying them seamlessly in the cloud or analyzing energy data for optimization, I strive to merge technical expertise with innovation. <strong>AI and machine learning</strong> play a significant role in my approach, bridging the gap between smart technology and energy efficiency.
+        </p>
+        <p>
+            My primary research interests revolve around <strong>energy efficiency</strong> and <strong>hydrogen production</strong>. After graduation, I plan to register as a <strong>Candidate Professional Engineering Technologist</strong> while pursuing a postgraduate diploma in either <strong>Power Plant Engineering</strong> or <strong>Smart Grid Technology</strong>.
+        </p>
+        <p>
+            Outside of engineering and coding, I enjoy exploring Cape Town’s beautiful beaches and discovering new coffee spots—definitely my favorite way to unwind!
+        </p>
+    </div>
+</div>
+
+
+    <div id="skills" class="content">
+        <div class="skills">
+            <div class="card">
+                <h3>Programming Languages</h3>
+                <p>R(AI), JavaScript(AI), VHDL(AI)</p>
+            </div>
+            <div class="card">
+                <h3>Frameworks</h3>
+                <p>React, Node.js,Github</p>
+            </div>
+            <div class="card">
+                <h3>Tools & Platforms</h3>
+                <p>STM32(Microcontrollers), PLCnext(PLC's), Quartus(FPGA's)</p>
+            </div>
+            <div class="card">
+                <h3>Cloud Computing</h3>
+                <p>Microsoft Azure, Google cloud, Render(hosting)</p>
+                <p>Experience in consuming API's from Google and microsoft</p>
+            </div>
+        </div>
+    </div>
+
+<div id="projects" class="content">
+  <h2>My Projects</h2>
+  <p>
+    Explore the web apps I have built to empower and inspire. I designed these projects using AI, to provide seamless digital experiences—from harnessing the power of solar energy and managing vehicle charging, to delivering comprehensive energy insights and secure user authentication.
+  </p>
+  <div class="projects">
+      <div class="card">
+          <h3>Solar App</h3>
+          <p>
+            I built the Solar App to help you harness the power of solar energy by analyzing your location’s solar potential. Estimate savings and explore energy efficiency insights for a greener tomorrow.
+            <a href="https://solar-app-acls.onrender.com/" target="_blank">Get Started</a>
+          </p>
+      </div>
+      <div class="card">
+          <h3>Vehicle Charging Dashboard</h3>
+          <p>
+            I developed the Vehicle Charging Dashboard to simplify vehicle charging. With this tool, you can schedule and book charging sessions, and explore a wide range of available charging stations designed for your convenience and efficiency.
+            <a href="https://charging-stations.onrender.com/" target="_blank">Explore Now</a>
+          </p>
+      </div>
+      <div class="card">
+          <h3>Comprehensive Energy Report</h3>
+          <p>
+            I created the Comprehensive Energy Report to provide an in-depth analysis of global energy trends. Gain detailed insights on CO2 emissions, renewable energy adoption, and electricity production at various levels. This report highlights risks and recommends actionable strategies for a sustainable future.
+            <a href="https://electricityanalys.z1.web.core.windows.net/" target="_blank">Read Report</a>
+          </p>
+      </div>
+      <div class="card">
+          <h3>Firebase Auth App</h3>
+          <p>
+            Welcome to the Firebase Auth App – built for secure authentication using Google, GitHub, and Microsoft. Developed by me, Gift Mthombeni, this app offers a seamless authentication experience with Firebase, ensuring both security and user-friendliness. Explore, learn, and integrate authentication features into your own projects.
+            <a href="https://auth-gift.onrender.com" target="_blank">Try It Out</a>
+          </p>
+      </div>
+  </div>
+</div>
+
+   <div id="certificates" class="content">
+    <div class="certificates">
+        <div class="card">
+            <h3>Google Analytics Certificate</h3>
+            <p>Here is my Google Analytics Certificate:</p>
+            <img src="Screenshot (445).png" alt="Google Analytics Certificate" width="100%" style="border: 1px solid #ccc; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" onclick="openModal('file:///C:/Users/GIFT/Desktop/cv/Screenshot%20(445).png')" />
+        </div>
+        <div class="card">
+            <h3>Microsoft Azure Data Fundamentals</h3>
+            <p>Here is my Microsoft Azure Certificate:</p>
+            <img src="Screenshot (446).png" alt="Microsoft Azure Certificate" width="100%" style="border: 1px solid #ccc; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" onclick="openModal('file:///C:/Users/GIFT/Desktop/cv/Screenshot%20(446).png')" />
+        </div>
+    </div>
+</div>
+
+<!-- Modal for displaying enlarged certificates -->
+<div id="certificateModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" />
+</div>
+
+<!-- CSS for Modal -->
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    }
+
+    .modal-content {
+        display: block;
+        margin: auto;
+        max-width: 90%; /* Adjust the size of the enlarged image */
+        max-height: 80%; /* Adjust the size of the enlarged image */
+        border: 4px solid #fff;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #ff5757;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<!-- JavaScript for Modal -->
+<script>
+    function openModal(imageSrc) {
+        const modal = document.getElementById("certificateModal");
+        const modalImage = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImage.src = imageSrc;
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("certificateModal");
+        modal.style.display = "none";
+    }
+</script>
+
+
+
+
+    <div id="contact" class="content">
+        <p>Feel free to reach out via email or connect via a direct call</p>
+        <p>rethabilegift240@gmail.com</p>
+        <p>067 699 7547</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CV | Designed by Gift Mthombeni.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const contents = document.querySelectorAll('.content');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Remove active class from all links and add it to the clicked link
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                link.classList.add('active');
+
+                // Hide all content and show the selected one
+                contents.forEach(content => content.classList.remove('active'));
+                document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
