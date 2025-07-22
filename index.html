@@ -1,115 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Tech CV - Gift Mthombeni</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #1e1e2f;
-            color: #ffffff;
-        }
-        header {
-            background: linear-gradient(to right, #3a3a6c, #1e1e2f);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        header h1 {
-            margin: 0;
-            color: #00d4ff;
-        }
-        header p {
-            font-size: 1.1em;
-            color: #c0c0c0;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #29293d;
-        }
-        nav a {
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 700;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-        nav a:hover, nav a.active {
-            background-color: #1e1e2f;
-            border-bottom: 3px solid #00d4ff;
-        }
-        .content {
-            display: none;
-            padding: 20px;
-        }
-        .content.active {
-            display: block;
-        }
-        .about {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .about img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-        }
-        .about h2 {
-            color: #00d4ff;
-        }
-        .about p {
-            max-width: 800px;
-            line-height: 1.6;
-        }
-        .skills, .projects, .certificates {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .card {
-            background-color: #29293d;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            text-align: center;
-            width: 250px;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card h3 {
-            color: #00d4ff;
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #29293d;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        footer p {
-            color: #c0c0c0;
-            font-size: 0.9em;
-        }
-        footer a {
-            color: #00d4ff;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Tech CV - Gift Mthombeni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8f9fc;
+      --header-gradient: linear-gradient(to right, #007acc, #4cc9f0);
+      --nav-color: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.15);
+      --text-color: #1a1a1a;
+      --subtext-color: #555555;
+      --accent-color: #0099cc;
+      --glass-blur: blur(12px);
+    }
+
+    body.light-mode {
+      --bg-color: #141625;
+      --header-gradient: linear-gradient(to right, #1f2a40, #141625);
+      --nav-color: #1e1e2f;
+      --card-bg: rgba(40, 48, 68, 0.25);
+      --text-color: #e4e4e4;
+      --subtext-color: #aebac7;
+      --accent-color: #4be0d2;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    header {
+      background: var(--header-gradient);
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      color: #ffffff;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #e0f2ff;
+      margin-top: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--nav-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 15px 25px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 700;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent-color);
+      border-bottom: 3px solid var(--accent-color);
+      background-color: rgba(0, 153, 204, 0.1);
+    }
+
+    .theme-toggle {
+      margin-left: auto;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .content {
+      display: none;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .about h2 {
+      color: var(--accent-color);
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      max-width: 800px;
+      color: var(--subtext-color);
+      margin-bottom: 20px;
+    }
+
+    .skills,
+    .projects,
+    .certificates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: var(--nav-color);
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    footer p {
+      color: var(--subtext-color);
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Toggle between light and dark themes
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
 </head>
+
+
+
 <body>
     <header>
         <h1>Gift Mthombeni</h1>
@@ -121,6 +217,8 @@
         <a href="#" data-tab="projects">Projects</a>
         <a href="#" data-tab="certificates">Certificates</a>
         <a href="#" data-tab="contact">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
     </nav>
 
 <div id="about" class="content active">
