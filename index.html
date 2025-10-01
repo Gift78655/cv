@@ -185,22 +185,13 @@
     }
 
     @media (max-width: 600px) {
-      .card {
-        width: 90%;
-      }
-
-      nav {
-        flex-wrap: wrap;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
+      .card { width: 90%; }
+      nav { flex-wrap: wrap; }
+      header h1 { font-size: 2rem; }
     }
   </style>
 
   <script>
-    // Toggle between light and dark themes
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
     }
@@ -223,23 +214,21 @@
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
   </nav>
 
+  <!-- Updated About (broader positioning, no photos) -->
   <div id="about" class="content active">
     <div class="about">
       <h2>About Me</h2>
       <p>
-        Hi there! I'm <strong>Gift Mthombeni</strong>, a Final Year Electrical Engineering student at the Cape Peninsula University of Technology (CPUT), specializing in <strong>power systems</strong>, <strong>solar PV</strong>, and <strong>battery energy storage systems (BESS)</strong>. I'm passionate about integrating smart technologies into the energy sector to drive reliability, efficiency, and sustainability.
+        I’m <strong>Gift Mthombeni</strong>, a final-year Electrical Engineering student at CPUT who enjoys turning real-world problems into reliable, well-documented solutions. My work spans modeling and simulation, embedded/controls, and modern web development—so I’m comfortable moving between lab, code, and production environments as the project requires.
       </p>
       <p>
-        My journey blends a solid foundation in electrical engineering with the creative application of modern software tools. I’ve built and deployed several full-stack web applications where <strong>AI is used as an assistive technology</strong>—not the end product. These include a <strong>bursary management platform</strong>, a <strong>smart grid fault detection dashboard</strong>, a <strong>solar performance app</strong>, and an <strong>automated invoice generator</strong>.
+        Recent projects include building data-driven dashboards and full-stack tools, developing automation/monitoring features, and shipping clean user interfaces. I use <strong>Node.js, React, MySQL, Firebase</strong>, and REST APIs alongside engineering toolchains such as <strong>MATLAB/Simulink</strong>. I apply AI pragmatically to speed up research, testing, and documentation—not as the end product.
       </p>
       <p>
-        I use technologies like <strong>Node.js, React.js, MySQL, Firebase</strong>, and <strong>Bootstrap</strong>—combined with AI models, third-party APIs, and data visualization tools—to deliver clean, functional solutions. These apps are hosted on platforms like <strong>Render</strong> and <strong>Azure</strong>, and my development workflow involves end-to-end debugging, GitHub version control, REST API development, and responsive UI design.
+        I bring strong fundamentals, version control with <strong>Git/GitHub</strong>, end-to-end debugging, and a focus on clear requirements, measurable outcomes, and maintainable code. I’m adaptable and open to roles across engineering, software, and data where I can learn quickly, collaborate well, and deliver impact.
       </p>
       <p>
-        My core research interests focus on how <strong>solar power, energy storage, and predictive intelligence</strong> can be optimized to support rural electrification and decentralized grids. After graduation, I plan to register as a <strong>Candidate Professional Engineering Technologist</strong> and continue developing intelligent energy-focused applications.
-      </p>
-      <p>
-        Outside of engineering and development, I enjoy discovering Cape Town’s coastal escapes and local coffee shops—my favorite spots to recharge and reflect on new ideas.
+        When I’m not building, I’m usually exploring new techniques, reading docs, or refining small UX details that make systems easier to use.
       </p>
     </div>
   </div>
@@ -284,7 +273,7 @@
         <p>
           A solar performance web app designed to analyze your location’s solar potential, estimate energy savings, and deliver efficiency insights. Built using React, Open Meteo API, and AI-assisted energy modeling.
         </p>
-        <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank">Get Started</a>
+        <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank" rel="noopener">Get Started</a>
       </div>
 
       <div class="card">
@@ -292,7 +281,7 @@
         <p>
           This dashboard simplifies EV charging management. Schedule sessions, browse charging stations, and track availability—making e-mobility smarter and more convenient.
         </p>
-        <a class="btn" href="https://charging-stations.onrender.com/" target="_blank">Explore Now</a>
+        <a class="btn" href="https://charging-stations.onrender.com/" target="_blank" rel="noopener">Explore Now</a>
       </div>
 
       <div class="card">
@@ -300,7 +289,7 @@
         <p>
           A data-driven dashboard that analyzes electricity production, carbon emissions, and renewable adoption across multiple countries. Features interactive graphs and recommendations for sustainable development.
         </p>
-        <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank">Read Report</a>
+        <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank" rel="noopener">Read Report</a>
       </div>
 
       <div class="card">
@@ -308,7 +297,7 @@
         <p>
           A complete platform built with Node.js, React, and MySQL to manage bursary applications, student profiles, and admin workflows. Features role-based login, email notifications, document uploads, and status tracking.
         </p>
-        <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank">Visit Platform</a>
+        <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank" rel="noopener">Visit Platform</a>
       </div>
 
       <div class="card">
@@ -316,7 +305,7 @@
         <p>
           A smart invoice generation tool with custom templates, QR code support, digital signature, and PDF export. Designed for freelancers and businesses to streamline billing. Built using React and pdfMake.
         </p>
-        <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank">Generate Invoice</a>
+        <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank" rel="noopener">Generate Invoice</a>
       </div>
 
       <div class="card">
@@ -324,7 +313,7 @@
         <p>
           A secure authentication demo app using Firebase Auth with support for Google, GitHub, and Microsoft logins. Features include clean UI, role detection, and protected routing for seamless onboarding.
         </p>
-        <a class="btn" href="https://auth-gift.onrender.com" target="_blank">Try It Out</a>
+        <a class="btn" href="https://auth-gift.onrender.com" target="_blank" rel="noopener">Try It Out</a>
       </div>
     </div>
   </div>
@@ -339,54 +328,42 @@
         <h3>Invoice Builder Demo</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/c6KcsdUHa24"
           title="Invoice Builder Demo" frameborder="0" allowfullscreen></iframe>
-        <p>
-          A smart invoice builder with custom templates, QR code, and PDF export. Built using React + pdfMake.
-        </p>
+        <p>A smart invoice builder with custom templates, QR code, and PDF export. Built using React + pdfMake.</p>
       </div>
 
       <div class="card">
         <h3>Solar App Demo</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/Yt0Hf_MGnR0"
           title="Solar App Demo" frameborder="0" allowfullscreen></iframe>
-        <p>
-          Solar performance estimator using Open Meteo API, React, and AI-assisted yield analysis.
-        </p>
+        <p>Solar performance estimator using Open Meteo API, React, and AI-assisted yield analysis.</p>
       </div>
 
       <div class="card">
         <h3>Electricity Dashboard</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/Kb84VqwGP74"
           title="Electricity Dashboard" frameborder="0" allowfullscreen></iframe>
-        <p>
-          CO₂ emissions and renewable energy insights dashboard using Dash and Plotly.
-        </p>
+        <p>CO₂ emissions and renewable energy insights dashboard using Dash and Plotly.</p>
       </div>
 
       <div class="card">
         <h3>Vehicle Charging Dashboard</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/PsvDQkTaBVk"
           title="Vehicle Charging Dashboard" frameborder="0" allowfullscreen></iframe>
-        <p>
-          EV charger scheduling and monitoring platform for managing station availability.
-        </p>
+        <p>EV charger scheduling and monitoring platform for managing station availability.</p>
       </div>
 
       <div class="card">
         <h3>Bursary Management System</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/Q5lUxNgmIQc"
           title="Bursary Management System" frameborder="0" allowfullscreen></iframe>
-        <p>
-          Full-stack bursary management app with admin workflows, document uploads, and email alerts.
-        </p>
+        <p>Full-stack bursary management app with admin workflows, document uploads, and email alerts.</p>
       </div>
 
       <div class="card">
         <h3>Authentication Demo</h3>
         <iframe width="100%" height="220" src="https://www.youtube.com/embed/0eY_K-nSv0A"
           title="Authentication Demo" frameborder="0" allowfullscreen></iframe>
-        <p>
-          Firebase-based login system with role detection, protected routes, and social logins.
-        </p>
+        <p>Firebase-based login system with role detection, protected routes, and social logins.</p>
       </div>
     </div>
   </div>
