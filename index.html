@@ -111,14 +111,6 @@
       text-align: center;
     }
 
-    .about img {
-      border-radius: 50%;
-      width: 160px;
-      height: 160px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
-
     .about h2 {
       color: var(--accent-color);
       margin-bottom: 12px;
@@ -160,6 +152,17 @@
     .card h3 {
       color: var(--accent-color);
       margin-bottom: 10px;
+    }
+
+    .card a.btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 14px;
+      text-decoration: none;
+      background: var(--accent-color);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
     }
 
     footer {
@@ -204,308 +207,230 @@
   </script>
 </head>
 
-
-
 <body>
-    <header>
-        <h1>Gift Mthombeni</h1>
-        <p>Energy Analyst| Electrical Engineering Student</p>
-    </header>
-    <nav>
-        <a href="#" data-tab="about" class="active">About</a>
-        <a href="#" data-tab="skills">Skills</a>
-        <a href="#" data-tab="projects">Projects</a>
-        <a href="#" data-tab="videos">Videos</a>
-        <a href="#" data-tab="certificates">Certificates</a>
-        <a href="#" data-tab="contact">Contact</a>
-        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <header>
+    <h1>Gift Mthombeni</h1>
+    <p>Energy Analyst | Electrical Engineering Student</p>
+  </header>
 
-    </nav>
+  <nav>
+    <a href="#" data-tab="about" class="active">About</a>
+    <a href="#" data-tab="skills">Skills</a>
+    <a href="#" data-tab="projects">Projects</a>
+    <a href="#" data-tab="videos">Videos</a>
+    <a href="#" data-tab="certificates">Certificates</a>
+    <a href="#" data-tab="contact">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
 
-<div id="about" class="content active">
-  <div class="about">
-    <img src="DSC_8829.jpg" alt="Gift Mthombeni">
-    <h2>About Me</h2>
-    <p>
-      Hi there! I'm <strong>Gift Mthombeni</strong>, a Final Year Electrical Engineering student at the Cape Peninsula University of Technology (CPUT), specializing in <strong>power systems</strong>, <strong>solar PV</strong>, and <strong>battery energy storage systems (BESS)</strong>. I'm passionate about integrating smart technologies into the energy sector to drive reliability, efficiency, and sustainability.
-    </p>
-    <p>
-      My journey blends a solid foundation in electrical engineering with the creative application of modern software tools. I’ve built and deployed several full-stack web applications where <strong>AI is used as an assistive technology</strong>—not the end product. These include a <strong>bursary management platform</strong>, a <strong>smart grid fault detection dashboard</strong>, a <strong>solar performance app</strong>, and an <strong>automated invoice generator</strong>.
-    </p>
-    <p>
-      I use technologies like <strong>Node.js, React.js, MySQL, Firebase</strong>, and <strong>Bootstrap</strong>—combined with AI models, third-party APIs, and data visualization tools—to deliver clean, functional solutions. These apps are hosted on platforms like <strong>Render</strong> and <strong>Azure</strong>, and my development workflow involves end-to-end debugging, GitHub version control, REST API development, and responsive UI design.
-    </p>
-    <p>
-      My core research interests focus on how <strong>solar power, energy storage, and predictive intelligence</strong> can be optimized to support rural electrification and decentralized grids. After graduation, I plan to register as a <strong>Candidate Professional Engineering Technologist</strong> and continue developing intelligent energy-focused applications.
-    </p>
-    <p>
-      Outside of engineering and development, I enjoy discovering Cape Town’s coastal escapes and local coffee shops—my favorite spots to recharge and reflect on new ideas.
-    </p>
-  </div>
-</div>
-
-
-
-
-<div id="skills" class="content">
-  <div class="skills">
-    <div class="card">
-      <h3>Programming Languages</h3>
-      <p>R (AI/ML), JavaScript (Web & AI), VHDL (FPGA Design)</p>
-    </div>
-    <div class="card">
-      <h3>Frameworks & Libraries</h3>
-      <p>React, Node.js, Express.js, Bootstrap</p>
-    </div>
-    <div class="card">
-      <h3>Version Control & Collaboration</h3>
-      <p>Git, GitHub</p>
-    </div>
-    <div class="card">
-      <h3>Hardware & Embedded Tools</h3>
-      <p>STM32 (Microcontrollers), PLCnext (Industrial PLCs), Quartus Prime (FPGA Design)</p>
-    </div>
-    <div class="card">
-      <h3>Cloud Platforms & Hosting</h3>
-      <p>Microsoft Azure, Google Cloud, Render</p>
-    </div>
-    <div class="card">
-      <h3>API Integration</h3>
-      <p>Experience with REST APIs from Google, Microsoft, Open-Meteo, and custom services</p>
-    </div>
-  </div>
-</div>
-
-
-<div id="projects" class="content">
-  <h2>My Projects</h2>
-  <p>
-    Explore the full-stack web apps I’ve developed using modern technologies and AI-assisted tools. These projects aim to solve real-world problems—from solar energy optimization and student funding systems to vehicle charging, energy analytics, and secure user authentication.
-  </p>
-  <div class="projects">
-    <div class="card">
-      <h3>Solar App</h3>
+  <div id="about" class="content active">
+    <div class="about">
+      <h2>About Me</h2>
       <p>
-        A solar performance web app designed to analyze your location’s solar potential, estimate energy savings, and deliver efficiency insights. Built using React, Open Meteo API, and AI-assisted energy modeling.
-        <a href="https://solar-app-acls.onrender.com/" target="_blank">Get Started</a>
+        Hi there! I'm <strong>Gift Mthombeni</strong>, a Final Year Electrical Engineering student at the Cape Peninsula University of Technology (CPUT), specializing in <strong>power systems</strong>, <strong>solar PV</strong>, and <strong>battery energy storage systems (BESS)</strong>. I'm passionate about integrating smart technologies into the energy sector to drive reliability, efficiency, and sustainability.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Vehicle Charging Dashboard</h3>
       <p>
-        This dashboard simplifies EV charging management. Schedule sessions, browse charging stations, and track availability—making e-mobility smarter and more convenient.
-        <a href="https://charging-stations.onrender.com/" target="_blank">Explore Now</a>
+        My journey blends a solid foundation in electrical engineering with the creative application of modern software tools. I’ve built and deployed several full-stack web applications where <strong>AI is used as an assistive technology</strong>—not the end product. These include a <strong>bursary management platform</strong>, a <strong>smart grid fault detection dashboard</strong>, a <strong>solar performance app</strong>, and an <strong>automated invoice generator</strong>.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Comprehensive Energy Report</h3>
       <p>
-        A data-driven dashboard that analyzes electricity production, carbon emissions, and renewable adoption across multiple countries. Features interactive graphs and recommendations for sustainable development.
-        <a href="https://electric-dash-1.onrender.com/" target="_blank">Read Report</a>
+        I use technologies like <strong>Node.js, React.js, MySQL, Firebase</strong>, and <strong>Bootstrap</strong>—combined with AI models, third-party APIs, and data visualization tools—to deliver clean, functional solutions. These apps are hosted on platforms like <strong>Render</strong> and <strong>Azure</strong>, and my development workflow involves end-to-end debugging, GitHub version control, REST API development, and responsive UI design.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Bursary Management Platform</h3>
       <p>
-        A complete platform built with Node.js, React, and MySQL to manage bursary applications, student profiles, and admin workflows. Features role-based login, email notifications, document uploads, and status tracking.
-        <a href="https://bursary-frontend.onrender.com" target="_blank">Visit Platform</a>
+        My core research interests focus on how <strong>solar power, energy storage, and predictive intelligence</strong> can be optimized to support rural electrification and decentralized grids. After graduation, I plan to register as a <strong>Candidate Professional Engineering Technologist</strong> and continue developing intelligent energy-focused applications.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Invoice Builder App</h3>
       <p>
-        A smart invoice generation tool with custom templates, QR code support, digital signature, and PDF export. Designed for freelancers and businesses to streamline billing. Built using React and pdfMake.
-        <a href="https://invoice-front-mn5z.onrender.com/" target="_blank">Generate Invoice</a>
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Firebase Auth App</h3>
-      <p>
-        A secure authentication demo app using Firebase Auth with support for Google, GitHub, and Microsoft logins. Features include clean UI, role detection, and protected routing for seamless onboarding.
-        <a href="https://auth-gift.onrender.com" target="_blank">Try It Out</a>
+        Outside of engineering and development, I enjoy discovering Cape Town’s coastal escapes and local coffee shops—my favorite spots to recharge and reflect on new ideas.
       </p>
     </div>
   </div>
-</div>
 
-
-<div id="videos" class="content">
-  <h2>Project Demo Videos</h2>
-  <p>
-    Explore short demo videos showcasing the key features of my applications — from solar energy and EV dashboards to bursary systems and authentication flows.
-  </p>
-  <div class="certificates">
-
-    <div class="card">
-      <h3>Invoice Builder Demo</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/c6KcsdUHa24"
-        title="Invoice Builder Demo" frameborder="0" allowfullscreen></iframe>
-      <p>
-        A smart invoice builder with custom templates, QR code, and PDF export. Built using React + pdfMake.
-      </p>
+  <div id="skills" class="content">
+    <div class="skills">
+      <div class="card">
+        <h3>Programming Languages</h3>
+        <p>R (AI/ML), JavaScript (Web & AI), VHDL (FPGA Design)</p>
+      </div>
+      <div class="card">
+        <h3>Frameworks & Libraries</h3>
+        <p>React, Node.js, Express.js, Bootstrap</p>
+      </div>
+      <div class="card">
+        <h3>Version Control & Collaboration</h3>
+        <p>Git, GitHub</p>
+      </div>
+      <div class="card">
+        <h3>Hardware & Embedded Tools</h3>
+        <p>STM32 (Microcontrollers), PLCnext (Industrial PLCs), Quartus Prime (FPGA Design)</p>
+      </div>
+      <div class="card">
+        <h3>Cloud Platforms & Hosting</h3>
+        <p>Microsoft Azure, Google Cloud, Render</p>
+      </div>
+      <div class="card">
+        <h3>API Integration</h3>
+        <p>Experience with REST APIs from Google, Microsoft, Open-Meteo, and custom services</p>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>Solar App Demo</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/Yt0Hf_MGnR0"
-        title="Solar App Demo" frameborder="0" allowfullscreen></iframe>
-      <p>
-        Solar performance estimator using Open Meteo API, React, and AI-assisted yield analysis.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Electricity Dashboard</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/Kb84VqwGP74"
-        title="Electricity Dashboard" frameborder="0" allowfullscreen></iframe>
-      <p>
-        CO₂ emissions and renewable energy insights dashboard using Dash and Plotly.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Vehicle Charging Dashboard</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/PsvDQkTaBVk"
-        title="Vehicle Charging Dashboard" frameborder="0" allowfullscreen></iframe>
-      <p>
-        EV charger scheduling and monitoring platform for managing station availability.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Bursary Management System</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/Q5lUxNgmIQc"
-        title="Bursary Management System" frameborder="0" allowfullscreen></iframe>
-      <p>
-        Full-stack bursary management app with admin workflows, document uploads, and email alerts.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Authentication Demo</h3>
-      <iframe width="100%" height="220" src="https://www.youtube.com/embed/0eY_K-nSv0A"
-        title="Authentication Demo" frameborder="0" allowfullscreen></iframe>
-      <p>
-        Firebase-based login system with role detection, protected routes, and social logins.
-      </p>
-    </div>
-
   </div>
-</div>
 
-<div id="certificates" class="content">
+  <div id="projects" class="content">
+    <h2>My Projects</h2>
+    <p>
+      Explore the full-stack web apps I’ve developed using modern technologies and AI-assisted tools. These projects aim to solve real-world problems—from solar energy optimization and student funding systems to vehicle charging, energy analytics, and secure user authentication.
+    </p>
+    <div class="projects">
+      <div class="card">
+        <h3>Solar App</h3>
+        <p>
+          A solar performance web app designed to analyze your location’s solar potential, estimate energy savings, and deliver efficiency insights. Built using React, Open Meteo API, and AI-assisted energy modeling.
+        </p>
+        <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank">Get Started</a>
+      </div>
+
+      <div class="card">
+        <h3>Vehicle Charging Dashboard</h3>
+        <p>
+          This dashboard simplifies EV charging management. Schedule sessions, browse charging stations, and track availability—making e-mobility smarter and more convenient.
+        </p>
+        <a class="btn" href="https://charging-stations.onrender.com/" target="_blank">Explore Now</a>
+      </div>
+
+      <div class="card">
+        <h3>Comprehensive Energy Report</h3>
+        <p>
+          A data-driven dashboard that analyzes electricity production, carbon emissions, and renewable adoption across multiple countries. Features interactive graphs and recommendations for sustainable development.
+        </p>
+        <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank">Read Report</a>
+      </div>
+
+      <div class="card">
+        <h3>Bursary Management Platform</h3>
+        <p>
+          A complete platform built with Node.js, React, and MySQL to manage bursary applications, student profiles, and admin workflows. Features role-based login, email notifications, document uploads, and status tracking.
+        </p>
+        <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank">Visit Platform</a>
+      </div>
+
+      <div class="card">
+        <h3>Invoice Builder App</h3>
+        <p>
+          A smart invoice generation tool with custom templates, QR code support, digital signature, and PDF export. Designed for freelancers and businesses to streamline billing. Built using React and pdfMake.
+        </p>
+        <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank">Generate Invoice</a>
+      </div>
+
+      <div class="card">
+        <h3>Firebase Auth App</h3>
+        <p>
+          A secure authentication demo app using Firebase Auth with support for Google, GitHub, and Microsoft logins. Features include clean UI, role detection, and protected routing for seamless onboarding.
+        </p>
+        <a class="btn" href="https://auth-gift.onrender.com" target="_blank">Try It Out</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="videos" class="content">
+    <h2>Project Demo Videos</h2>
+    <p>
+      Explore short demo videos showcasing the key features of my applications — from solar energy and EV dashboards to bursary systems and authentication flows.
+    </p>
     <div class="certificates">
-        <div class="card">
-            <h3>Google Analytics Certificate</h3>
-            <p>Here is my Google Analytics Certificate:</p>
-            <img src="Screenshot (445).png" alt="Google Analytics Certificate" width="100%" style="border: 1px solid #ccc; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" onclick="openModal('file:///C:/Users/GIFT/Desktop/cv/Screenshot%20(445).png')" />
-        </div>
-        <div class="card">
-            <h3>Microsoft Azure Data Fundamentals</h3>
-            <p>Here is my Microsoft Azure Certificate:</p>
-            <img src="Screenshot (446).png" alt="Microsoft Azure Certificate" width="100%" style="border: 1px solid #ccc; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" onclick="openModal('file:///C:/Users/GIFT/Desktop/cv/Screenshot%20(446).png')" />
-        </div>
+      <div class="card">
+        <h3>Invoice Builder Demo</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/c6KcsdUHa24"
+          title="Invoice Builder Demo" frameborder="0" allowfullscreen></iframe>
+        <p>
+          A smart invoice builder with custom templates, QR code, and PDF export. Built using React + pdfMake.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Solar App Demo</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Yt0Hf_MGnR0"
+          title="Solar App Demo" frameborder="0" allowfullscreen></iframe>
+        <p>
+          Solar performance estimator using Open Meteo API, React, and AI-assisted yield analysis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Electricity Dashboard</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Kb84VqwGP74"
+          title="Electricity Dashboard" frameborder="0" allowfullscreen></iframe>
+        <p>
+          CO₂ emissions and renewable energy insights dashboard using Dash and Plotly.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Vehicle Charging Dashboard</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/PsvDQkTaBVk"
+          title="Vehicle Charging Dashboard" frameborder="0" allowfullscreen></iframe>
+        <p>
+          EV charger scheduling and monitoring platform for managing station availability.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Bursary Management System</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Q5lUxNgmIQc"
+          title="Bursary Management System" frameborder="0" allowfullscreen></iframe>
+        <p>
+          Full-stack bursary management app with admin workflows, document uploads, and email alerts.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Authentication Demo</h3>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/0eY_K-nSv0A"
+          title="Authentication Demo" frameborder="0" allowfullscreen></iframe>
+        <p>
+          Firebase-based login system with role detection, protected routes, and social logins.
+        </p>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Modal for displaying enlarged certificates -->
-<div id="certificateModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage" />
-</div>
-
-<!-- CSS for Modal -->
-<style>
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1000; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
-    }
-
-    .modal-content {
-        display: block;
-        margin: auto;
-        max-width: 90%; /* Adjust the size of the enlarged image */
-        max-height: 80%; /* Adjust the size of the enlarged image */
-        border: 4px solid #fff;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #fff;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #ff5757;
-        text-decoration: none;
-        cursor: pointer;
-    }
-</style>
-
-<!-- JavaScript for Modal -->
-<script>
-    function openModal(imageSrc) {
-        const modal = document.getElementById("certificateModal");
-        const modalImage = document.getElementById("modalImage");
-        modal.style.display = "block";
-        modalImage.src = imageSrc;
-    }
-
-    function closeModal() {
-        const modal = document.getElementById("certificateModal");
-        modal.style.display = "none";
-    }
-</script>
-
+  <div id="certificates" class="content">
+    <div class="certificates">
+      <div class="card">
+        <h3>Google Analytics Certificate</h3>
+        <p>View or download the certificate file below.</p>
+        <a class="btn" href="Screenshot (445).png" target="_blank" rel="noopener">View Certificate (PNG)</a>
+      </div>
+      <div class="card">
+        <h3>Microsoft Azure Data Fundamentals</h3>
+        <p>View or download the certificate file below.</p>
+        <a class="btn" href="Screenshot (446).png" target="_blank" rel="noopener">View Certificate (PNG)</a>
+      </div>
+    </div>
+  </div>
 
   <div id="contact" class="content">
-  <h2>Contact Me</h2>
-  <p>Feel free to reach out via email, phone, or connect with me on GitHub.</p>
-  <p><strong>Email:</strong> <a href="mailto:rethabilegift240@gmail.com">rethabilegift240@gmail.com</a></p>
-  <p><strong>Phone:</strong> <a href="tel:+27676997547">067 699 7547</a></p>
-  <p><strong>GitHub:</strong> <a href="https://github.com/Gift78655" target="_blank">github.com/Gift78655</a></p>
-</div>
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out via email, phone, or connect with me on GitHub.</p>
+    <p><strong>Email:</strong> <a href="mailto:rethabilegift240@gmail.com">rethabilegift240@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+27676997547">067 699 7547</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Gift78655" target="_blank" rel="noopener">github.com/Gift78655</a></p>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 CV | Designed by Gift Mthombeni.</p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2025 CV | Designed by Gift Mthombeni.</p>
-    </footer>
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    const contents = document.querySelectorAll('.content');
 
-    <script>
-        const navLinks = document.querySelectorAll('nav a');
-        const contents = document.querySelectorAll('.content');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                // Remove active class from all links and add it to the clicked link
-                navLinks.forEach(nav => nav.classList.remove('active'));
-                link.classList.add('active');
-
-                // Hide all content and show the selected one
-                contents.forEach(content => content.classList.remove('active'));
-                document.getElementById(link.getAttribute('data-tab')).classList.add('active');
-            });
-        });
-    </script>
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+        contents.forEach(content => content.classList.remove('active'));
+        document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
