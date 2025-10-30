@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -266,7 +265,7 @@
 
 
 
-  <div id="projects" class="content">
+ <div id="projects" class="content">
   <h2>My Projects</h2>
   <p>
     This portfolio brings together my core engineering and software development work — from power-system simulations and renewable-energy modeling in MATLAB and DIgSILENT, to intelligent full-stack web platforms built with React, Node.js, and cloud services. Each project demonstrates analytical thinking, design optimization, and implementation skills focused on practical, real-world impact.
@@ -274,43 +273,47 @@
 
   <!-- Tabs Navigation -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab(event, 'power')">Power Systems & Renewable Energy</button>
-    <button class="tab-btn" onclick="openTab(event, 'software')">Software & Full-Stack Applications</button>
+    <button class="tab-btn active" onclick="openTab(event, 'power')">⚡ Power Systems & Renewable Energy</button>
+    <button class="tab-btn" onclick="openTab(event, 'software')">💻 Software & Full-Stack Applications</button>
   </div>
 
   <!-- ===== POWER SYSTEMS TAB ===== -->
   <div id="power" class="tab-content active">
     <div class="projects">
+      <!-- Final Year Project -->
       <div class="card">
         <h3>Final Year Project – 500 kW Microgrid Design</h3>
         <p>
           Designed and simulated a hybrid PV-BESS microgrid optimized for rural electrification, reliability improvement, and smart SoC-based load prioritization in MATLAB/Simulink and DIgSILENT PowerFactory.
         </p>
-        <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+        <button class="btn" onclick="openModal('microgridModal')">View Details</button>
       </div>
 
+      <!-- Load Flow -->
       <div class="card">
         <h3>Load-Flow & Short-Circuit Analysis</h3>
         <p>
           Comparative study between MATLAB and DIgSILENT PowerFactory evaluating voltage profiles, fault currents, and network losses in a medium-voltage distribution system.
         </p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Explore Results</a>
+        <button class="btn" onclick="openModal('loadflowModal')">Explore Results</button>
       </div>
 
+      <!-- Power Factor -->
       <div class="card">
         <h3>Power-Factor Correction Study</h3>
         <p>
           Simulation of a 33 kV radial feeder with shunt-capacitor compensation to enhance voltage regulation and minimize reactive-power flow across buses.
         </p>
-        <a class="btn" href="#" target="_blank" rel="noopener">View Summary</a>
+        <button class="btn" onclick="openModal('pfcModal')">View Summary</button>
       </div>
 
+      <!-- Motor Simulation -->
       <div class="card">
         <h3>Single-Phase Induction-Motor Analysis</h3>
         <p>
           Developed a MATLAB/Simulink model to study torque-speed characteristics, slip behavior, and efficiency under variable-load conditions.
         </p>
-        <a class="btn" href="#" target="_blank" rel="noopener">View Model</a>
+        <button class="btn" onclick="openModal('motorModal')">View Model</button>
       </div>
     </div>
   </div>
@@ -409,9 +412,111 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ==== MODAL STYLING ==== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 80px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-content {
+      background-color: var(--nav-color);
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 700px;
+      color: var(--text-color);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .close {
+      color: var(--accent-color);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #ff5555;
+    }
   </style>
 
-  <!-- ===== Tab Toggle Script ===== -->
+  <!-- ===== Modals for Power Projects ===== -->
+  <!-- Power Factor Correction -->
+  <div id="pfcModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('pfcModal')">&times;</span>
+      <h2>Power-Factor Correction Study</h2>
+      <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power Factor Simulation" class="modal-img">
+      <p>
+        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the impact of capacitor-bank compensation on voltage stability and power factor.  
+        Installing a 0.63 MVAr capacitor raised the bus voltage to 0.977 p.u. and improved the system power factor from 0.87 lagging to 0.95 lagging — confirming the effectiveness of distributed reactive-power compensation.
+      </p>
+      <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
+    </div>
+  </div>
+
+  <!-- Load Flow Modal -->
+  <div id="loadflowModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loadflowModal')">&times;</span>
+      <h2>Load-Flow & Short-Circuit Analysis</h2>
+      <img src="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" alt="Load Flow Report" class="modal-img">
+      <p>
+        A comprehensive analysis comparing MATLAB and DIgSILENT PowerFactory simulations for a 33/3.3 kV network. The report explores bus voltages, network losses, and fault levels, validating consistent system behavior across both platforms.
+      </p>
+      <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">Open Report (PDF)</a>
+    </div>
+  </div>
+
+  <!-- Motor Simulation Modal -->
+  <div id="motorModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('motorModal')">&times;</span>
+      <h2>Single-Phase Induction-Motor Simulation</h2>
+      <img src="MOTOR_SIMULATION.pdf" alt="Motor Simulation Diagram" class="modal-img">
+      <p>
+        A MATLAB/Simulink model replicating real single-phase induction-motor behavior under varying load. Parameters such as torque, speed, slip, and efficiency were evaluated and validated against experimental data.
+      </p>
+      <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+    </div>
+  </div>
+
+  <!-- Microgrid Project Modal -->
+  <div id="microgridModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('microgridModal')">&times;</span>
+      <h2>Final Year Project – 500 kW Microgrid Design</h2>
+      <img src="DSC_8829.jpg" alt="Microgrid System" class="modal-img">
+      <p>
+        Designed a 500 kW hybrid solar PV + battery energy storage system to supply rural electrification with enhanced reliability.  
+        The system integrates an inverter-based control strategy and SoC-based load prioritization logic for autonomous operation and optimal renewable utilization.
+      </p>
+      <a class="btn" href="#" target="_blank" rel="noopener">View Full Paper (Coming Soon)</a>
+    </div>
+  </div>
+
+  <!-- ===== Tab & Modal Scripts ===== -->
   <script>
     function openTab(evt, tabName) {
       const tabContents = document.querySelectorAll('.tab-content');
@@ -421,8 +526,24 @@
       document.getElementById(tabName).classList.add('active');
       evt.currentTarget.classList.add('active');
     }
+
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) modal.style.display = "none";
+      });
+    };
   </script>
 </div>
+
 
 
 
