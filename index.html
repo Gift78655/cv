@@ -265,7 +265,7 @@
 
 
 
- <div id="projects" class="content">
+<div id="projects" class="content">
   <h2>My Projects</h2>
   <p>
     This portfolio highlights a range of multidisciplinary projects built using engineering and software technologies. From power-system simulations and renewable-energy modeling in MATLAB and DIgSILENT, to full-stack platforms with React, Node.js, and cloud integration — each project demonstrates data-driven design, system optimization, and practical real-world application.
@@ -418,7 +418,7 @@
       display: none;
       position: fixed;
       z-index: 9999;
-      padding-top: 50px;
+      padding-top: 40px;
       left: 0;
       top: 0;
       width: 100%;
@@ -438,21 +438,29 @@
       color: var(--text-color);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       animation: fadeIn 0.3s ease;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     .modal-img {
-      width: 100%;
-      max-height: 400px;
+      width: 90%;
+      max-height: 360px;
       object-fit: contain;
       border-radius: 10px;
-      margin: 15px 0;
+      margin: 10px 0 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     }
 
     .close {
       color: var(--accent-color);
-      float: right;
+      align-self: flex-end;
       font-size: 26px;
       font-weight: bold;
       cursor: pointer;
@@ -467,11 +475,12 @@
       text-align: justify;
       font-size: 0.95rem;
       line-height: 1.5;
+      margin-top: 5px;
     }
 
     .modal-content .btn {
-      display: inline-block;
-      margin-top: 12px;
+      margin-bottom: 15px;
+      align-self: center;
     }
   </style>
 
@@ -480,11 +489,12 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('pfcModal')">&times;</span>
       <h2>Power-Factor Correction Study</h2>
+      <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
       <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power Factor Simulation" class="modal-img">
       <p>
-        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor. Adding a 0.63 MVAr capacitor improved the voltage to 0.977 p.u. and raised the power factor from 0.87 lagging to 0.95 lagging — confirming its effectiveness in minimizing reactive losses.
+        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor.  
+        Adding a 0.63 MVAr capacitor improved the voltage to 0.977 p.u. and raised the power factor from 0.87 lagging to 0.95 lagging — confirming its effectiveness in minimizing reactive losses.
       </p>
-      <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
     </div>
   </div>
 
@@ -492,11 +502,12 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('loadflowModal')">&times;</span>
       <h2>Load-Flow & Short-Circuit Analysis</h2>
+      <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
       <img src="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" alt="Load Flow Report" class="modal-img">
       <p>
-        A comparative study between MATLAB and DIgSILENT PowerFactory for analyzing load-flow, fault currents, and voltage profiles in a 33/3.3 kV distribution system. The project demonstrated consistent power-quality results across both environments, highlighting DIgSILENT’s precision in dynamic simulations.
+        A comparative study between MATLAB and DIgSILENT PowerFactory for analyzing load-flow, fault currents, and voltage profiles in a 33/3.3 kV distribution system.  
+        The project demonstrated consistent results across both environments, emphasizing PowerFactory’s accuracy for dynamic grid simulations.
       </p>
-      <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
     </div>
   </div>
 
@@ -504,11 +515,12 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('motorModal')">&times;</span>
       <h2>Single-Phase Induction-Motor Simulation</h2>
+      <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
       <img src="MOTOR_SIMULATION.pdf" alt="Motor Simulation Diagram" class="modal-img">
       <p>
-        Developed a MATLAB/Simulink model replicating the dynamic behavior of a single-phase induction motor under variable load. Parameters such as torque, speed, efficiency, and slip were compared against experimental results to verify accuracy and operational performance.
+        Developed a MATLAB/Simulink model replicating the dynamic behavior of a single-phase induction motor under variable load.  
+        Parameters such as torque, speed, efficiency, and slip were evaluated and verified against real experimental results.
       </p>
-      <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
     </div>
   </div>
 
@@ -516,11 +528,12 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('microgridModal')">&times;</span>
       <h2>Final Year Project – 500 kW Microgrid Design</h2>
+      <a class="btn" href="#" target="_blank" rel="noopener">View Full Paper (Coming Soon)</a>
       <img src="DSC_8829.jpg" alt="Microgrid System" class="modal-img">
       <p>
-        A hybrid PV–BESS microgrid system designed and simulated for rural electrification, emphasizing grid resilience, renewable integration, and autonomous load prioritization. The design combines DIgSILENT PowerFactory for network performance and MATLAB/Simulink for real-time SoC-based control logic.
+        Designed and simulated a 500 kW hybrid solar PV + battery energy storage microgrid for rural electrification, improving energy reliability and autonomy.  
+        The model integrates inverter control strategies, SoC-based load management, and renewable dispatch optimization using MATLAB and DIgSILENT PowerFactory.
       </p>
-      <a class="btn" href="#" target="_blank" rel="noopener">View Full Paper (Coming Soon)</a>
     </div>
   </div>
 
@@ -551,6 +564,7 @@
     };
   </script>
 </div>
+
 
 
 
