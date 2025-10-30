@@ -268,101 +268,149 @@
   <div id="projects" class="content">
   <h2>My Projects</h2>
   <p>
-    Explore the full-stack web apps I’ve developed using modern technologies and AI-assisted tools. These projects aim to solve real-world problems—from solar energy optimization and student funding systems to vehicle charging, energy analytics, and secure user authentication.
+    This section highlights a range of multidisciplinary projects I’ve built using modern engineering and software technologies. 
+    From intelligent web applications to MATLAB and DIgSILENT simulations, each project demonstrates practical problem-solving, 
+    data-driven design, and the integration of technology into real-world systems — spanning renewable energy analytics, automation, 
+    and digital platforms.
   </p>
 
-  <!-- SOFTWARE ENGINEERING PROJECTS -->
-  <h3 style="color: var(--accent-color); margin-top: 20px;">Software Engineering Projects</h3>
-  <div class="projects">
-    <div class="card">
-      <h3>Solar App</h3>
-      <p>
-        A solar performance web app designed to analyze your location’s solar potential, estimate energy savings, and deliver efficiency insights. Built using React, Open Meteo API, and AI-assisted energy modeling.
-      </p>
-      <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank" rel="noopener">Get Started</a>
+  <!-- Accordion container -->
+  <style>
+    .accordion {
+      max-width: 900px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: var(--nav-color);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion input {
+      display: none;
+    }
+
+    .accordion label {
+      display: block;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--accent-color);
+      background-color: var(--card-bg);
+      backdrop-filter: var(--glass-blur);
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .accordion label:hover {
+      background-color: rgba(0, 153, 204, 0.15);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background-color: var(--bg-color);
+      border-radius: 0 0 10px 10px;
+      padding: 0 20px;
+    }
+
+    .accordion input:checked ~ .accordion-content {
+      max-height: 3000px;
+      padding: 20px;
+    }
+
+    .accordion-content .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  </style>
+
+  <div class="accordion">
+    <!-- Software Engineering Projects -->
+    <div class="accordion-item">
+      <input type="radio" name="accordion" id="software-projects" checked>
+      <label for="software-projects">Software Engineering Projects</label>
+      <div class="accordion-content">
+        <div class="projects">
+          <div class="card">
+            <h3>Solar App</h3>
+            <p>A solar performance web app designed to analyze your location’s solar potential, estimate energy savings, and deliver efficiency insights. Built using React, Open Meteo API, and AI-assisted energy modeling.</p>
+            <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank" rel="noopener">Get Started</a>
+          </div>
+
+          <div class="card">
+            <h3>Vehicle Charging Dashboard</h3>
+            <p>This dashboard simplifies EV charging management. Schedule sessions, browse charging stations, and track availability—making e-mobility smarter and more convenient.</p>
+            <a class="btn" href="https://charging-stations.onrender.com/" target="_blank" rel="noopener">Explore Now</a>
+          </div>
+
+          <div class="card">
+            <h3>Comprehensive Energy Report</h3>
+            <p>A data-driven dashboard that analyzes electricity production, carbon emissions, and renewable adoption across multiple countries. Features interactive graphs and sustainability recommendations.</p>
+            <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank" rel="noopener">Read Report</a>
+          </div>
+
+          <div class="card">
+            <h3>Bursary Management Platform</h3>
+            <p>A complete platform built with Node.js, React, and MySQL to manage bursary applications, student profiles, and admin workflows. Features role-based login, email notifications, document uploads, and tracking.</p>
+            <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank" rel="noopener">Visit Platform</a>
+          </div>
+
+          <div class="card">
+            <h3>Invoice Builder App</h3>
+            <p>A smart invoice generation tool with custom templates, QR code support, digital signature, and PDF export. Designed for freelancers and small businesses. Built using React and pdfMake.</p>
+            <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank" rel="noopener">Generate Invoice</a>
+          </div>
+
+          <div class="card">
+            <h3>Firebase Auth App</h3>
+            <p>A secure authentication demo app using Firebase Auth with support for Google, GitHub, and Microsoft logins. Features include role detection, protected routing, and modern onboarding flow.</p>
+            <a class="btn" href="https://auth-gift.onrender.com" target="_blank" rel="noopener">Try It Out</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Vehicle Charging Dashboard</h3>
-      <p>
-        This dashboard simplifies EV charging management. Schedule sessions, browse charging stations, and track availability—making e-mobility smarter and more convenient.
-      </p>
-      <a class="btn" href="https://charging-stations.onrender.com/" target="_blank" rel="noopener">Explore Now</a>
-    </div>
+    <!-- Power Systems & MATLAB / DIgSILENT Projects -->
+    <div class="accordion-item">
+      <input type="radio" name="accordion" id="power-projects">
+      <label for="power-projects">Power Systems & MATLAB / DIgSILENT Projects</label>
+      <div class="accordion-content">
+        <div class="projects">
+          <div class="card">
+            <h3>Power Factor Correction Study</h3>
+            <p>Simulation of a 33 kV radial feeder with shunt compensation to enhance voltage stability and reduce reactive losses, performed in MATLAB and DIgSILENT PowerFactory.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Summary</a>
+          </div>
 
-    <div class="card">
-      <h3>Comprehensive Energy Report</h3>
-      <p>
-        A data-driven dashboard that analyzes electricity production, carbon emissions, and renewable adoption across multiple countries. Features interactive graphs and recommendations for sustainable development.
-      </p>
-      <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank" rel="noopener">Read Report</a>
-    </div>
+          <div class="card">
+            <h3>Load Flow and Short-Circuit Analysis</h3>
+            <p>Comparative study using MATLAB and DIgSILENT to evaluate bus voltage profiles, system losses, and fault current magnitudes in a medium-voltage network.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">Explore Results</a>
+          </div>
 
-    <div class="card">
-      <h3>Bursary Management Platform</h3>
-      <p>
-        A complete platform built with Node.js, React, and MySQL to manage bursary applications, student profiles, and admin workflows. Features role-based login, email notifications, document uploads, and status tracking.
-      </p>
-      <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank" rel="noopener">Visit Platform</a>
-    </div>
+          <div class="card">
+            <h3>Single-Phase Induction Motor Simulation</h3>
+            <p>Developed a MATLAB Simulink model to analyze the torque-speed curve, slip variation, and performance parameters of a single-phase induction motor under load.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Model</a>
+          </div>
 
-    <div class="card">
-      <h3>Invoice Builder App</h3>
-      <p>
-        A smart invoice generation tool with custom templates, QR code support, digital signature, and PDF export. Designed for freelancers and businesses to streamline billing. Built using React and pdfMake.
-      </p>
-      <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank" rel="noopener">Generate Invoice</a>
-    </div>
-
-    <div class="card">
-      <h3>Firebase Auth App</h3>
-      <p>
-        A secure authentication demo app using Firebase Auth with support for Google, GitHub, and Microsoft logins. Features include clean UI, role detection, and protected routing for seamless onboarding.
-      </p>
-      <a class="btn" href="https://auth-gift.onrender.com" target="_blank" rel="noopener">Try It Out</a>
-    </div>
-  </div>
-
-  <!-- POWER SYSTEMS & MATLAB / DIGSILENT PROJECTS -->
-  <h3 style="color: var(--accent-color); margin-top: 40px;">Power Systems & MATLAB / DIgSILENT Projects</h3>
-  <p>
-    Below are specialized engineering projects developed using MATLAB/Simulink and DIgSILENT PowerFactory. These focus on renewable energy integration, grid optimization, and power quality enhancement. (Code snippets and simulation visuals will be added soon.)
-  </p>
-
-  <div class="projects">
-    <div class="card">
-      <h3>Power Factor Correction Study</h3>
-      <p>
-        Simulated a 33 kV radial feeder with shunt compensation to improve voltage regulation and reduce reactive losses in DIgSILENT and MATLAB.
-      </p>
-      <a class="btn" href="#" target="_blank" rel="noopener">View Summary</a>
-    </div>
-
-    <div class="card">
-      <h3>Load Flow and Short-Circuit Analysis</h3>
-      <p>
-        Comparative analysis of load flow and fault levels using MATLAB and DIgSILENT PowerFactory to validate model consistency.
-      </p>
-      <a class="btn" href="#" target="_blank" rel="noopener">Explore Results</a>
-    </div>
-
-    <div class="card">
-      <h3>Single-Phase Induction Motor Simulation</h3>
-      <p>
-        MATLAB Simulink-based model analyzing performance, torque-speed characteristics, slip, and efficiency under different loads.
-      </p>
-      <a class="btn" href="#" target="_blank" rel="noopener">View Model</a>
-    </div>
-
-    <div class="card">
-      <h3>Final Year Project – 500 kW Microgrid Design</h3>
-      <p>
-        Design and simulation of a hybrid PV-BESS microgrid optimized for rural electrification, reliability improvement, and SoC management.
-      </p>
-      <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          <div class="card">
+            <h3>Final Year Project – 500 kW Microgrid Design</h3>
+            <p>Design and simulation of a hybrid PV-BESS microgrid optimized for rural electrification, reliability enhancement, and smart SoC-based load prioritization strategy.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 
 
