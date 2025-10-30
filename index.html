@@ -280,6 +280,7 @@
   <!-- ===== POWER SYSTEMS TAB ===== -->
   <div id="power" class="tab-content active">
     <div class="projects">
+
       <!-- Final Year Project -->
       <div class="card">
         <h3>Final Year Project – 500 kW Microgrid Design</h3>
@@ -456,6 +457,12 @@
       border-radius: 10px;
       margin: 10px 0 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .modal-img:hover {
+      transform: scale(1.02);
     }
 
     .close {
@@ -482,6 +489,27 @@
       margin-bottom: 15px;
       align-self: center;
     }
+
+    /* Lightbox Overlay */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
   </style>
 
   <!-- ===== Modals for Power Projects ===== -->
@@ -490,10 +518,9 @@
       <span class="close" onclick="closeModal('pfcModal')">&times;</span>
       <h2>Power-Factor Correction Study</h2>
       <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power Factor Simulation" class="modal-img">
+      <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power Factor Simulation" class="modal-img" onclick="openLightbox(this.src)">
       <p>
-        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor.  
-        Adding a 0.63 MVAr capacitor improved the voltage to 0.977 p.u. and raised the power factor from 0.87 lagging to 0.95 lagging — confirming its effectiveness in minimizing reactive losses.
+        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor. Adding a 0.63 MVAr capacitor improved voltage to 0.977 p.u. and raised power factor from 0.87 to 0.95 lagging, confirming reduced reactive losses.
       </p>
     </div>
   </div>
@@ -503,10 +530,10 @@
       <span class="close" onclick="closeModal('loadflowModal')">&times;</span>
       <h2>Load-Flow & Short-Circuit Analysis</h2>
       <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" alt="Load Flow Report" class="modal-img">
+      <img src="LOAD_FLOW_MATLAB.png" alt="MATLAB Load Flow Results" class="modal-img" onclick="openLightbox(this.src)">
+      <img src="LOAD_FLOW_DIGSILIENT.jpg" alt="DIgSILENT Load Flow Results" class="modal-img" onclick="openLightbox(this.src)">
       <p>
-        A comparative study between MATLAB and DIgSILENT PowerFactory for analyzing load-flow, fault currents, and voltage profiles in a 33/3.3 kV distribution system.  
-        The project demonstrated consistent results across both environments, emphasizing PowerFactory’s accuracy for dynamic grid simulations.
+        A comparative study using MATLAB and DIgSILENT PowerFactory to analyze voltage profiles, current magnitudes, and fault conditions in a 33/3.3 kV network. Results confirmed consistent analytical performance and showcased the advantage of DIgSILENT for grid fault visualization.
       </p>
     </div>
   </div>
@@ -516,10 +543,9 @@
       <span class="close" onclick="closeModal('motorModal')">&times;</span>
       <h2>Single-Phase Induction-Motor Simulation</h2>
       <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="MOTOR_SIMULATION.pdf" alt="Motor Simulation Diagram" class="modal-img">
+      <img src="MOTOR_SIMULATION_PIC.png" alt="Motor Simulation Diagram" class="modal-img" onclick="openLightbox(this.src)">
       <p>
-        Developed a MATLAB/Simulink model replicating the dynamic behavior of a single-phase induction motor under variable load.  
-        Parameters such as torque, speed, efficiency, and slip were evaluated and verified against real experimental results.
+        MATLAB/Simulink model of a capacitor-start single-phase induction motor analyzed for torque, slip, and efficiency. Results verified against experimental data from lab tests, confirming the validity of the simulated performance curve.
       </p>
     </div>
   </div>
@@ -529,15 +555,19 @@
       <span class="close" onclick="closeModal('microgridModal')">&times;</span>
       <h2>Final Year Project – 500 kW Microgrid Design</h2>
       <a class="btn" href="#" target="_blank" rel="noopener">View Full Paper (Coming Soon)</a>
-      <img src="DSC_8829.jpg" alt="Microgrid System" class="modal-img">
+      <img src="DSC_8829.jpg" alt="Microgrid System" class="modal-img" onclick="openLightbox(this.src)">
       <p>
-        Designed and simulated a 500 kW hybrid solar PV + battery energy storage microgrid for rural electrification, improving energy reliability and autonomy.  
-        The model integrates inverter control strategies, SoC-based load management, and renewable dispatch optimization using MATLAB and DIgSILENT PowerFactory.
+        Designed a 500 kW hybrid PV–BESS microgrid integrating inverter control, renewable dispatch, and battery optimization. Conducted in MATLAB and DIgSILENT PowerFactory to validate both network stability and control strategy.
       </p>
     </div>
   </div>
 
-  <!-- ===== JS for Tabs & Modals ===== -->
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img src="" alt="Expanded Image">
+  </div>
+
+  <!-- ===== JS for Tabs, Modals, and Lightbox ===== -->
   <script>
     function openTab(evt, tabName) {
       const tabContents = document.querySelectorAll('.tab-content');
@@ -562,6 +592,17 @@
         if (event.target === modal) modal.style.display = "none";
       });
     };
+
+    // Lightbox
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'flex';
+      lightbox.querySelector('img').src = src;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
   </script>
 </div>
 
