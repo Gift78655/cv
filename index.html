@@ -107,7 +107,7 @@
       font-size: clamp(1rem, 2vw, 1.25rem);
       color: #e7fbff;
       margin: 14px auto 0;
-      max-width: 780px;
+      max-width: 850px;
     }
 
     .profile-badges {
@@ -205,7 +205,7 @@
     }
 
     .section-intro {
-      max-width: 870px;
+      max-width: 900px;
       margin: 0 auto 34px;
       text-align: center;
       color: var(--subtext-color);
@@ -220,19 +220,43 @@
     }
 
     .about p {
-      max-width: 850px;
+      max-width: 900px;
       color: var(--subtext-color);
       margin: 0 0 18px;
       font-size: 1.02rem;
     }
 
+    .about-role-panel {
+      width: 100%;
+      max-width: 980px;
+      margin: 14px auto 26px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--card-bg), rgba(75, 224, 210, 0.08));
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .about-role-panel h3 {
+      margin: 0 0 10px;
+      color: var(--accent-color);
+      font-size: 1.35rem;
+    }
+
+    .about-role-panel p {
+      max-width: none;
+      text-align: left;
+      margin-bottom: 0;
+    }
+
     .highlight-panel {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       width: 100%;
-      max-width: 980px;
+      max-width: 1080px;
     }
 
     .highlight-item {
@@ -241,6 +265,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow);
+      text-align: left;
     }
 
     .highlight-item strong {
@@ -313,6 +338,63 @@
     .card p {
       color: var(--subtext-color);
       margin: 0 0 14px;
+    }
+
+    .skill-card {
+      text-align: left;
+      min-height: 330px;
+    }
+
+    .skill-card h3 {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .skill-card p {
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .skill-list li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--subtext-color);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .skill-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .skill-note {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-color);
+      border: 1px solid rgba(75, 224, 210, 0.25);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
     }
 
     .card-meta {
@@ -619,6 +701,10 @@
         grid-template-columns: repeat(2, minmax(240px, 1fr));
         max-width: 760px;
       }
+
+      .highlight-panel {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 980px) {
@@ -626,10 +712,6 @@
       .projects,
       .video-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .highlight-panel {
-        grid-template-columns: 1fr;
       }
 
       nav a {
@@ -667,13 +749,18 @@
       .skills,
       .projects,
       .video-grid,
-      .certificate-grid {
+      .certificate-grid,
+      .highlight-panel {
         grid-template-columns: 1fr;
         max-width: 430px;
       }
 
       .card {
         padding: 22px 18px;
+      }
+
+      .skill-card {
+        min-height: auto;
       }
 
       .video-frame {
@@ -691,13 +778,13 @@
   <header>
     <div class="header-inner">
       <h1>Gift Mthombeni</h1>
-      <p>Electrical Engineering Graduate | Power Systems | Renewable Energy | Software Development</p>
+      <p>Electrical Engineering Graduate | Solar After-Sales Technician | Inverter & Battery Systems | Power Systems | Software Development</p>
 
       <div class="profile-badges">
+        <span class="profile-badge">Solar Technical Support</span>
+        <span class="profile-badge">Inverter & Battery Repair</span>
+        <span class="profile-badge">System Commissioning</span>
         <span class="profile-badge">Power Systems</span>
-        <span class="profile-badge">Renewable Energy</span>
-        <span class="profile-badge">Full-Stack Development</span>
-        <span class="profile-badge">Data & Automation</span>
       </div>
     </div>
   </header>
@@ -716,72 +803,157 @@
     <div class="about">
       <h2 class="section-title">About Me</h2>
 
+      <div class="about-role-panel">
+        <h3>Solar After-Sales Technician & Electrical Engineering Graduate</h3>
+        <p>
+          I’m <strong>Gift Mthombeni</strong>, an <strong>Electrical Engineering graduate specializing in Power Systems</strong>, with practical experience working in the solar industry as an <strong>after-sales technician</strong>. My work involves technical support, inverter and battery fault diagnosis, system commissioning, system design modifications, customer technical advice, and hands-on troubleshooting of solar backup and hybrid energy systems.
+        </p>
+      </div>
+
       <p>
-        I’m <strong>Gift</strong>, an <strong>Electrical Engineering graduate specializing in Power Systems</strong> from the Cape Peninsula University of Technology (CPUT). I am passionate about combining electrical engineering principles with modern digital technologies to design, simulate, automate, and improve real-world energy systems.
+        I have worked with low-voltage battery banks and high-voltage rack battery systems up to around <strong>400 V</strong>, including battery paralleling, BMS communication, inverter-to-battery communication, and configuration of lithium battery operating modes. I also have practical exposure to inverter paralleling and communication, including work involving <strong>50 kW T-Rex inverter systems</strong>.
       </p>
 
       <p>
-        My work spans <strong>renewable-energy modeling</strong>, <strong>power-system simulation</strong>, <strong>control-system analysis</strong>, and <strong>full-stack software development</strong>. I use engineering tools such as <strong>MATLAB/Simulink</strong>, <strong>DIgSILENT PowerFactory</strong>, and <strong>SAM</strong>, together with software technologies such as <strong>React, Node.js, Python, MySQL, Firebase, and cloud deployment platforms</strong>.
+        My technical experience includes resolving common inverter faults such as <strong>bus soft-start errors</strong>, communication issues, battery detection problems, configuration faults, and system behavior problems linked to output priority settings. I understand key inverter operating strategies such as <strong>Solar First</strong>, <strong>Utility First</strong>, <strong>Battery First</strong>, and hybrid combinations used to optimize backup performance and energy usage.
       </p>
 
       <p>
-        I approach projects with a systems mindset: understanding the engineering problem, modeling the behavior, building usable tools, and presenting results clearly through dashboards, reports, and interactive applications.
+        I also understand grid export behavior, export control, CT metering, ATS integration, online inverter monitoring and configuration platforms such as <strong>EDMS</strong>, and generator integration. This includes practical understanding of synchronizing single-phase and three-phase inverter systems with generators, including systems up to around <strong>12 kVA</strong>.
+      </p>
+
+      <p>
+        Alongside my solar technical experience, I build software tools and dashboards using technologies such as <strong>React, Node.js, Python, MySQL, Firebase, Git, GitHub, and Render</strong>. This allows me to combine engineering knowledge with digital systems, automation, and data-driven problem-solving.
       </p>
 
       <div class="highlight-panel">
         <div class="highlight-item">
-          <strong>Engineering Focus</strong>
-          <span>Power systems, PV design, battery systems, simulations, and practical energy analysis.</span>
+          <strong>Solar Support</strong>
+          <span>Technical support, customer advice, fault diagnosis, commissioning, and after-sales service.</span>
         </div>
 
         <div class="highlight-item">
-          <strong>Software Focus</strong>
-          <span>React, Node.js, dashboards, APIs, authentication, databases, and deployment workflows.</span>
+          <strong>Inverter Systems</strong>
+          <span>Configuration, communication, paralleling, output priorities, monitoring, and fault resolution.</span>
         </div>
 
         <div class="highlight-item">
-          <strong>Working Style</strong>
-          <span>Practical, detail-oriented, data-driven, and focused on reliable real-world outcomes.</span>
+          <strong>Battery Systems</strong>
+          <span>Low-voltage batteries, high-voltage rack batteries, BMS communication, and battery paralleling.</span>
+        </div>
+
+        <div class="highlight-item">
+          <strong>Digital Tools</strong>
+          <span>Engineering dashboards, automation tools, web apps, databases, APIs, and cloud deployment.</span>
         </div>
       </div>
     </div>
   </div>
 
   <div id="skills" class="content">
-    <h2 class="section-title">Skills</h2>
+    <h2 class="section-title">Technical Skills</h2>
     <p class="section-intro">
-      A mix of engineering, programming, data, cloud, and practical system-development skills.
+      A structured view of my practical solar after-sales, inverter, battery, commissioning, power-systems, and software-development skills.
     </p>
 
     <div class="skills">
-      <div class="card">
-        <h3>Programming Languages</h3>
-        <p>R, JavaScript, Python, SQL, VHDL</p>
+      <div class="card skill-card">
+        <span class="skill-note">Solar After-Sales</span>
+        <h3>Technical Support & Field Diagnostics</h3>
+        <ul class="skill-list">
+          <li>After-sales technical support for solar inverter and battery systems.</li>
+          <li>Customer-facing technical advice for system faults, performance issues, and configuration problems.</li>
+          <li>System debugging, fault tracing, root-cause analysis, and repair workflow support.</li>
+          <li>Practical experience with inverter fixing, battery fixing, and system behavior troubleshooting.</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>Frameworks & Libraries</h3>
-        <p>React, Node.js, Express.js, Bootstrap, Dash, Plotly</p>
+      <div class="card skill-card">
+        <span class="skill-note">Inverter Systems</span>
+        <h3>Inverter Fault Finding & Configuration</h3>
+        <ul class="skill-list">
+          <li>Diagnosis of common inverter problems, including bus soft-start errors and communication faults.</li>
+          <li>Understanding of inverter operating priorities such as Solar First, Utility First, Battery First, and hybrid modes.</li>
+          <li>Configuration of inverter battery modes, including lithium mode and user-defined battery settings.</li>
+          <li>Online monitoring and inverter configuration experience using EDMS-type monitoring platforms.</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>Version Control</h3>
-        <p>Git, GitHub, project repositories, deployment workflows</p>
+      <div class="card skill-card">
+        <span class="skill-note">Battery Systems</span>
+        <h3>Battery Paralleling & BMS Communication</h3>
+        <ul class="skill-list">
+          <li>Low-voltage battery bank configuration, communication setup, and parallel operation support.</li>
+          <li>High-voltage rack battery experience, including tiered BMS architecture and communication behavior.</li>
+          <li>Battery-to-inverter communication setup, battery detection troubleshooting, and BMS fault understanding.</li>
+          <li>Hands-on exposure to battery systems operating up to around 400 V.</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>Engineering Tools</h3>
-        <p>MATLAB, Simulink, DIgSILENT PowerFactory, SAM, Proteus, Quartus Prime</p>
+      <div class="card skill-card">
+        <span class="skill-note">Commissioning</span>
+        <h3>System Commissioning & Design Modifications</h3>
+        <ul class="skill-list">
+          <li>Commissioning of solar backup and hybrid inverter systems.</li>
+          <li>System design modification advice based on site requirements, customer load behavior, and backup expectations.</li>
+          <li>Configuration of charging behavior, source priorities, battery operation, and system operating logic.</li>
+          <li>Practical understanding of how inverter settings affect battery life, grid usage, and backup performance.</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>Cloud & Hosting</h3>
-        <p>Microsoft Azure, Google Cloud, Render, Firebase</p>
+      <div class="card skill-card">
+        <span class="skill-note">Parallel Systems</span>
+        <h3>Inverter Paralleling & Generator Integration</h3>
+        <ul class="skill-list">
+          <li>Experience with inverter paralleling and communication, including 50 kW T-Rex inverter systems.</li>
+          <li>Understanding of single-phase and three-phase inverter synchronization principles.</li>
+          <li>Generator integration experience, including synchronization considerations for systems up to around 12 kVA.</li>
+          <li>Practical understanding of ATS integration and backup source transfer behavior.</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>API Integration</h3>
-        <p>REST APIs, Open-Meteo, Google services, Microsoft services, custom backend APIs</p>
+      <div class="card skill-card">
+        <span class="skill-note">Grid & Metering</span>
+        <h3>Grid Export, CT Metering & Protection Awareness</h3>
+        <ul class="skill-list">
+          <li>Understanding of grid export behavior, export limitation, and regulatory considerations.</li>
+          <li>Practical knowledge of CT meters and current-sensing logic used in inverter systems.</li>
+          <li>Understanding of load behavior, backup circuits, grid interaction, and system protection logic.</li>
+          <li>Ability to interpret system performance issues linked to metering, communication, or configuration errors.</li>
+        </ul>
+      </div>
+
+      <div class="card skill-card">
+        <span class="skill-note">Engineering</span>
+        <h3>Power Systems & Simulation Tools</h3>
+        <ul class="skill-list">
+          <li>MATLAB and Simulink for system modeling, simulation, and technical analysis.</li>
+          <li>DIgSILENT PowerFactory for load-flow, short-circuit, and power-system studies.</li>
+          <li>SAM for solar PV and battery performance evaluation.</li>
+          <li>Proteus and Quartus Prime for electronics, digital systems, and FPGA-related work.</li>
+        </ul>
+      </div>
+
+      <div class="card skill-card">
+        <span class="skill-note">Software</span>
+        <h3>Software Development & Dashboards</h3>
+        <ul class="skill-list">
+          <li>Frontend development using React, JavaScript, Bootstrap, and responsive UI design.</li>
+          <li>Backend development using Node.js, Express.js, REST APIs, and MySQL.</li>
+          <li>Dashboard development using Python, Dash, Plotly, and data visualization workflows.</li>
+          <li>Authentication, role-based systems, document workflows, and full-stack application deployment.</li>
+        </ul>
+      </div>
+
+      <div class="card skill-card">
+        <span class="skill-note">Cloud & Workflow</span>
+        <h3>Deployment, Version Control & Collaboration</h3>
+        <ul class="skill-list">
+          <li>Git and GitHub for version control, project tracking, and deployment workflows.</li>
+          <li>Render and Firebase experience for hosting, backend services, and web-app deployment.</li>
+          <li>Microsoft Azure and Google Cloud fundamentals exposure.</li>
+          <li>API integration experience with Open-Meteo, Google services, Microsoft services, and custom backend APIs.</li>
+        </ul>
       </div>
     </div>
   </div>
