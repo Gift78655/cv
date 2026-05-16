@@ -4,104 +4,213 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Tech CV - Gift Mthombeni</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-color: #f8f9fc;
-      --header-gradient: linear-gradient(to right, #007acc, #4cc9f0);
-      --nav-color: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.15);
-      --text-color: #1a1a1a;
-      --subtext-color: #555555;
-      --accent-color: #0099cc;
-      --glass-blur: blur(12px);
+      --bg-color: #101221;
+      --bg-soft: #15182a;
+      --header-gradient: linear-gradient(135deg, #101221 0%, #17213c 52%, #0f766e 100%);
+      --nav-color: rgba(27, 29, 48, 0.96);
+      --card-bg: rgba(255, 255, 255, 0.055);
+      --card-bg-hover: rgba(255, 255, 255, 0.085);
+      --text-color: #f4f7fb;
+      --subtext-color: #b7c0ce;
+      --accent-color: #4be0d2;
+      --accent-dark: #24b8ad;
+      --accent-soft: rgba(75, 224, 210, 0.14);
+      --border-color: rgba(255, 255, 255, 0.14);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --glass-blur: blur(14px);
     }
 
-    body.light-mode {
-      --bg-color: #141625;
-      --header-gradient: linear-gradient(to right, #1f2a40, #141625);
-      --nav-color: #1e1e2f;
-      --card-bg: rgba(40, 48, 68, 0.25);
-      --text-color: #e4e4e4;
-      --subtext-color: #aebac7;
-      --accent-color: #4be0d2;
+    body[data-theme="light"] {
+      --bg-color: #f7f9fc;
+      --bg-soft: #eef3f8;
+      --header-gradient: linear-gradient(135deg, #007acc 0%, #4cc9f0 55%, #4be0d2 100%);
+      --nav-color: rgba(255, 255, 255, 0.96);
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-bg-hover: #ffffff;
+      --text-color: #172033;
+      --subtext-color: #536173;
+      --accent-color: #0099cc;
+      --accent-dark: #007ba6;
+      --accent-soft: rgba(0, 153, 204, 0.12);
+      --border-color: rgba(20, 35, 60, 0.12);
+      --shadow: 0 20px 45px rgba(25, 45, 75, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
+      font-family: "Roboto", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(75, 224, 210, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(0, 122, 204, 0.12), transparent 34%),
+        var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      line-height: 1.65;
+      transition: background-color 0.35s ease, color 0.35s ease;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent-color);
     }
 
     header {
       background: var(--header-gradient);
-      padding: 30px 20px;
+      padding: 54px 20px 48px;
       text-align: center;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 26px rgba(0, 0, 0, 0.22);
       color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.18), transparent 24%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      max-width: 1050px;
+      margin: 0 auto;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.4rem;
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -1px;
       color: #ffffff;
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #e0f2ff;
-      margin-top: 10px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #e7fbff;
+      margin: 14px auto 0;
+      max-width: 780px;
+    }
+
+    .profile-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
     }
 
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 800;
       display: flex;
       justify-content: center;
+      align-items: center;
+      gap: 4px;
       background-color: var(--nav-color);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
       flex-wrap: wrap;
+      padding: 0 14px;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
     }
 
     nav a {
-      padding: 15px 25px;
+      padding: 18px 22px;
       text-decoration: none;
       color: var(--text-color);
-      font-weight: 700;
+      font-weight: 800;
       border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
+      border-radius: 0 0 12px 12px;
     }
 
     nav a:hover,
     nav a.active {
       color: var(--accent-color);
-      border-bottom: 3px solid var(--accent-color);
-      background-color: rgba(0, 153, 204, 0.1);
+      border-bottom-color: var(--accent-color);
+      background-color: var(--accent-soft);
     }
 
     .theme-toggle {
-      margin-left: auto;
       padding: 12px 20px;
       cursor: pointer;
-      font-weight: bold;
-      background-color: var(--accent-color);
-      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+      color: #07111a;
       border: none;
-      border-radius: 4px;
+      border-radius: 10px;
       margin: 10px;
-      transition: background-color 0.3s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 12px 28px rgba(75, 224, 210, 0.18);
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(75, 224, 210, 0.25);
     }
 
     .content {
       display: none;
-      padding: 40px 20px;
-      max-width: 1000px;
+      padding: 48px 20px 70px;
+      max-width: 1120px;
       margin: auto;
+      animation: fadeIn 0.35s ease-in-out;
     }
 
     .content.active {
       display: block;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 14px;
+      color: var(--accent-color);
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      letter-spacing: -0.5px;
+    }
+
+    .section-intro {
+      max-width: 870px;
+      margin: 0 auto 32px;
+      text-align: center;
+      color: var(--subtext-color);
+      font-size: 1.03rem;
     }
 
     .about {
@@ -111,292 +220,237 @@
       text-align: center;
     }
 
-    .about h2 {
-      color: var(--accent-color);
-      margin-bottom: 12px;
+    .about p {
+      max-width: 850px;
+      color: var(--subtext-color);
+      margin: 0 0 18px;
+      font-size: 1.02rem;
     }
 
-    .about p {
-      max-width: 800px;
+    .highlight-panel {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .highlight-item {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-item strong {
+      display: block;
+      color: var(--accent-color);
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .highlight-item span {
+      display: block;
       color: var(--subtext-color);
-      margin-bottom: 20px;
+      font-size: 0.94rem;
     }
 
     .skills,
     .projects,
     .certificates {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
     }
 
     .card {
+      position: relative;
       background-color: var(--card-bg);
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
       text-align: center;
-      width: 280px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), transparent);
+      opacity: 0.85;
     }
 
     .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(-7px);
+      background-color: var(--card-bg-hover);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.26);
     }
 
     .card h3 {
       color: var(--accent-color);
-      margin-bottom: 10px;
+      margin: 8px 0 12px;
+      font-size: 1.18rem;
+      line-height: 1.35;
     }
 
-    .card a.btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 14px;
-      text-decoration: none;
-      background: var(--accent-color);
-      color: #fff;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    footer {
-      background-color: var(--nav-color);
-      text-align: center;
-      padding: 20px;
-      width: 100%;
-      margin-top: 40px;
-    }
-
-    footer p {
+    .card p {
       color: var(--subtext-color);
-      font-size: 0.9em;
-      margin: 5px 0;
+      margin: 0 0 14px;
     }
 
-    footer a {
+    .card-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
       color: var(--accent-color);
+      border: 1px solid rgba(75, 224, 210, 0.25);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .tag.pdf {
+      background: rgba(255, 99, 132, 0.12);
+      color: #ff8fa3;
+      border-color: rgba(255, 99, 132, 0.25);
+    }
+
+    body[data-theme="light"] .tag.pdf {
+      color: #c62846;
+    }
+
+    .btn,
+    .card a.btn,
+    button.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 12px 16px;
       text-decoration: none;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+      color: #07111a;
+      border-radius: 12px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+      box-shadow: 0 12px 26px rgba(75, 224, 210, 0.16);
+      font-family: inherit;
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      .card { width: 90%; }
-      nav { flex-wrap: wrap; }
-      header h1 { font-size: 2rem; }
+    .btn:hover,
+    .card a.btn:hover,
+    button.btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+      box-shadow: 0 18px 34px rgba(75, 224, 210, 0.23);
     }
-  </style>
 
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+      box-shadow: none;
     }
-  </script>
-</head>
 
-<body>
-  <header>
-    <h1>Gift Mthombeni</h1>
-    <p>Electrical Engineering Graduand</p>
-  </header>
+    .certificate-card {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-  <nav>
-    <a href="#" data-tab="about" class="active">About</a>
-    <a href="#" data-tab="skills">Skills</a>
-    <a href="#" data-tab="projects">Projects</a>
-    <a href="#" data-tab="videos">Videos</a>
-    <a href="#" data-tab="certificates">Certificates</a>
-    <a href="#" data-tab="contact">Contact</a>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  </nav>
+    .certificate-icon {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 8px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      color: var(--accent-color);
+      font-size: 1.35rem;
+      font-weight: 900;
+      border: 1px solid rgba(75, 224, 210, 0.22);
+    }
 
- <!-- Updated About (broader multidisciplinary focus) -->
-<div id="about" class="content active">
-  <div class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m <strong>Gift </strong>, a <strong>Electrical Engineering (Power Systems)</strong> graduand from the Cape Peninsula University of Technology (CPUT), driven by a passion for blending electrical engineering principles with modern digital technologies. My work spans renewable-energy modeling, control-system design, and full-stack software development — enabling me to move seamlessly between simulation, code, and practical implementation.
-    </p>
-    <p>
-      Over the past year, I’ve designed and simulated <strong>PV and battery systems</strong>, built <strong>MATLAB/Simulink</strong> and <strong>DIgSILENT PowerFactory</strong> models for load flow, power-factor correction, and motor performance, and created web-based dashboards to visualize and automate energy data. I use <strong>Python, Node.js, React, MySQL, and Firebase</strong> alongside engineering tools to build smart, data-driven solutions for real-world systems.
-    </p>
-    <p>
-      I approach every project with a systems mindset — applying <strong>AI</strong> for analysis and optimization, using <strong>Git/GitHub</strong> for version control, and emphasizing clarity, reliability, and scalability. Whether it’s simulating grid behavior, automating report generation, or deploying full-stack tools, I focus on creating solutions that are practical, maintainable, and impactful.
-    </p>
-    <p>
-      Outside of engineering, I enjoy refining user experience details, exploring energy innovations, and contributing to open-source projects that merge sustainability with modern technology.
-    </p>
-  </div>
-</div>
+    .certificate-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
 
-  <div id="skills" class="content">
-    <div class="skills">
-      <div class="card">
-        <h3>Programming Languages</h3>
-        <p>R (AI/ML), JavaScript (Web & AI), VHDL (FPGA Design)</p>
-      </div>
-      <div class="card">
-        <h3>Frameworks & Libraries</h3>
-        <p>React, Node.js, Express.js, Bootstrap</p>
-      </div>
-      <div class="card">
-        <h3>Version Control & Collaboration</h3>
-        <p>Git, GitHub</p>
-      </div>
-      <div class="card">
-        <h3>Hardware & Embedded Tools</h3>
-        <p>STM32 (Microcontrollers), PLCnext (Industrial PLCs), Quartus Prime (FPGA Design)</p>
-      </div>
-      <div class="card">
-        <h3>Cloud Platforms & Hosting</h3>
-        <p>Microsoft Azure, Google Cloud, Render</p>
-      </div>
-      <div class="card">
-        <h3>API Integration</h3>
-        <p>Experience with REST APIs from Google, Microsoft, Open-Meteo, and custom services</p>
-      </div>
-    </div>
-  </div>
+    #projects h2,
+    #videos h2,
+    #contact h2 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-top: 0;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+    }
 
+    #projects > p,
+    #videos > p,
+    #contact > p {
+      color: var(--subtext-color);
+      text-align: center;
+      max-width: 870px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-
-
-<div id="projects" class="content">
-  <h2>My Projects</h2>
-  <p>
-    This portfolio highlights a range of multidisciplinary projects built using engineering and software technologies. From power-system simulations and renewable-energy modeling in MATLAB and DIgSILENT, to full-stack platforms with React, Node.js, and cloud integration — each project demonstrates data-driven design, system optimization, and practical real-world application.
-  </p>
-
-  <!-- Tabs Navigation -->
-  <div class="tabs">
-    <button class="tab-btn active" onclick="openTab(event, 'power')">Power Systems & Renewable Energy</button>
-    <button class="tab-btn" onclick="openTab(event, 'software')">Software & Full-Stack Applications</button>
-  </div>
-
-  <!-- ===== POWER SYSTEMS TAB ===== -->
-  <div id="power" class="tab-content active">
-    <div class="projects">
-
-      <!-- Final Year Project -->
-      <div class="card">
-        <h3>Design and Simulation of a Residential Rooftop PV System in Kirstenhof, Cape Town</h3>
-        <p>
-          Developed and simulated a residential rooftop PV system with battery energy storage in MATLAB Simulink and SAM. The study focused on improving reliability, minimizing grid dependency, and analyzing the technical and financial feasibility of small-scale systems under Cape Town’s local conditions.
-        </p>
-        <button class="btn" onclick="openModal('microgridModal')">View Details</button>
-      </div>
-
-      <!-- Load Flow -->
-      <div class="card">
-        <h3>Load-Flow & Short-Circuit Analysis</h3>
-        <p>
-          Comparative study between MATLAB and DIgSILENT PowerFactory evaluating voltage profiles, fault currents, and network losses in a medium-voltage distribution system.
-        </p>
-        <button class="btn" onclick="openModal('loadflowModal')">Explore Results</button>
-      </div>
-
-      <!-- Power Factor -->
-      <div class="card">
-        <h3>Power-Factor Correction Study</h3>
-        <p>
-          Simulation of a 33 kV radial feeder with shunt-capacitor compensation to enhance voltage regulation and minimize reactive-power flow across buses.
-        </p>
-        <button class="btn" onclick="openModal('pfcModal')">View Summary</button>
-      </div>
-
-      <!-- Motor Simulation -->
-      <div class="card">
-        <h3>Single-Phase Induction-Motor Simulation</h3>
-        <p>
-          Developed a MATLAB/Simulink model to study torque-speed characteristics, slip behavior, and efficiency under variable-load conditions.
-        </p>
-        <button class="btn" onclick="openModal('motorModal')">View Model</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SOFTWARE TAB ===== -->
-  <div id="software" class="tab-content">
-    <div class="projects">
-      <div class="card">
-        <h3>Solar App</h3>
-        <p>
-          A solar-performance web app that analyzes your location’s solar potential, estimates energy savings, and visualizes daily output. Built with React, Open-Meteo API, and AI-assisted modeling.
-        </p>
-        <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank" rel="noopener">Get Started</a>
-      </div>
-
-      <div class="card">
-        <h3>Vehicle-Charging Dashboard</h3>
-        <p>
-          Simplifies EV-charging management with station scheduling, availability tracking, and session analytics — making e-mobility smarter and more convenient.
-        </p>
-        <a class="btn" href="https://charging-stations.onrender.com/" target="_blank" rel="noopener">Explore Now</a>
-      </div>
-
-      <div class="card">
-        <h3>Comprehensive Energy Report</h3>
-        <p>
-          Interactive dashboard analyzing electricity production, CO₂ emissions, and renewable integration across Africa. Built using Dash and Plotly.
-        </p>
-        <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank" rel="noopener">Read Report</a>
-      </div>
-
-      <div class="card">
-        <h3>Bursary-Management Platform</h3>
-        <p>
-          A full-stack system for managing bursary applications and student records with role-based login, email notifications, and document verification. Built with React, Node.js, and MySQL.
-        </p>
-        <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank" rel="noopener">Visit Platform</a>
-      </div>
-
-      <div class="card">
-        <h3>Invoice-Builder App</h3>
-        <p>
-          Smart invoicing solution with custom templates, QR codes, digital signatures, and PDF export — built in React using pdfMake.
-        </p>
-        <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank" rel="noopener">Generate Invoice</a>
-      </div>
-
-      <div class="card">
-        <h3>Firebase Auth App</h3>
-        <p>
-          Secure authentication demo with Google, GitHub, and Microsoft logins using Firebase Auth. Includes role detection and protected routing.
-        </p>
-        <a class="btn" href="https://auth-gift.onrender.com" target="_blank" rel="noopener">Try It Out</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Tabs + Modal Styling ===== -->
-  <style>
     .tabs {
       display: flex;
       justify-content: center;
-      margin-top: 25px;
-      gap: 10px;
+      margin-top: 28px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .tab-btn {
       background: var(--card-bg);
-      border: 1px solid var(--accent-color);
+      border: 1px solid var(--border-color);
       color: var(--accent-color);
-      padding: 12px 20px;
-      border-radius: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
       cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-weight: 900;
+      transition: all 0.25s ease;
+      font-family: inherit;
     }
 
     .tab-btn.active,
     .tab-btn:hover {
       background: var(--accent-color);
-      color: #fff;
+      color: #07111a;
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
     }
 
     .tab-content {
@@ -406,275 +460,600 @@
 
     .tab-content.active {
       display: block;
-      animation: fadeIn 0.4s ease-in-out;
+      animation: fadeIn 0.35s ease-in-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .video-frame {
+      width: 100%;
+      height: 220px;
+      border: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      margin-bottom: 14px;
+      background: #000;
     }
 
-    /* ==== MODAL STYLING ==== */
+    .contact-panel {
+      max-width: 720px;
+      margin: 30px auto 0;
+      padding: 28px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .contact-panel p {
+      margin: 10px 0;
+    }
+
     .modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      padding-top: 40px;
+      padding: 34px 16px;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       overflow-y: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.76);
+      backdrop-filter: blur(7px);
     }
 
     .modal-content {
-      background-color: var(--nav-color);
+      background-color: var(--bg-soft);
       margin: auto;
-      padding: 25px 30px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 650px;
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      width: min(92vw, 720px);
       color: var(--text-color);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 0.3s ease;
+      box-shadow: 0 24px 75px rgba(0, 0, 0, 0.45);
+      animation: fadeIn 0.28s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border: 1px solid var(--border-color);
     }
 
     .modal h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin-top: 6px;
+      margin-bottom: 12px;
       text-align: center;
+      color: var(--accent-color);
+      line-height: 1.3;
     }
 
     .modal-img {
-      width: 90%;
+      width: 92%;
       max-height: 360px;
       object-fit: contain;
-      border-radius: 10px;
-      margin: 10px 0 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      border-radius: 16px;
+      margin: 12px 0 18px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
+      border: 1px solid var(--border-color);
     }
 
     .modal-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.015);
     }
 
     .close {
       color: var(--accent-color);
       align-self: flex-end;
-      font-size: 26px;
-      font-weight: bold;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 900;
       cursor: pointer;
-      transition: color 0.3s;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .close:hover {
-      color: #ff5555;
+      color: #ff6b6b;
+      transform: rotate(90deg);
     }
 
     .modal-content p {
       text-align: justify;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-top: 5px;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-top: 8px;
+      color: var(--subtext-color);
     }
 
-    .modal-content .btn {
-      margin-bottom: 15px;
-      align-self: center;
-    }
-
-    /* Lightbox Overlay */
     #lightbox {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 10000;
+      padding: 20px;
     }
 
     #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      max-width: 94vw;
+      max-height: 90vh;
+      border-radius: 14px;
+      box-shadow: 0 0 28px rgba(255,255,255,0.18);
+    }
+
+    footer {
+      background-color: var(--nav-color);
+      text-align: center;
+      padding: 24px 16px;
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      backdrop-filter: var(--glass-blur);
+    }
+
+    footer p {
+      color: var(--subtext-color);
+      font-size: 0.95rem;
+      margin: 5px 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .skills,
+      .projects,
+      .certificates {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .highlight-panel {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        padding: 15px 16px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      header {
+        padding: 42px 16px 38px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0 10px;
+      }
+
+      nav a {
+        white-space: nowrap;
+        padding: 14px 14px;
+        font-size: 0.92rem;
+      }
+
+      .theme-toggle {
+        white-space: nowrap;
+        padding: 10px 14px;
+      }
+
+      .content {
+        padding: 38px 16px 58px;
+      }
+
+      .skills,
+      .projects,
+      .certificates {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px 18px;
+      }
+
+      .video-frame {
+        height: 205px;
+      }
+
+      .modal-content {
+        padding: 22px 18px;
+      }
     }
   </style>
+</head>
 
-  <!-- ===== Modals for Power Projects ===== -->
-  <div id="pfcModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('pfcModal')">&times;</span>
-      <h2>Power-Factor Correction Study</h2>
-      <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power Factor Simulation" class="modal-img" onclick="openLightbox(this.src)">
+<body data-theme="dark">
+  <header>
+    <div class="header-inner">
+      <h1>Gift Mthombeni</h1>
+      <p>Electrical Engineering Graduate | Power Systems | Renewable Energy | Software Development</p>
+
+      <div class="profile-badges">
+        <span class="profile-badge">Power Systems</span>
+        <span class="profile-badge">Renewable Energy</span>
+        <span class="profile-badge">Full-Stack Development</span>
+        <span class="profile-badge">Data & Automation</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#" data-tab="about" class="active">About</a>
+    <a href="#" data-tab="skills">Skills</a>
+    <a href="#" data-tab="projects">Projects</a>
+    <a href="#" data-tab="videos">Videos</a>
+    <a href="#" data-tab="certificates">Certificates</a>
+    <a href="#" data-tab="contact">Contact</a>
+    <button class="theme-toggle" type="button" onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
+
+  <div id="about" class="content active">
+    <div class="about">
+      <h2 class="section-title">About Me</h2>
+
       <p>
-        This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor. Adding a 0.63 MVAr capacitor improved voltage to 0.977 p.u. and raised power factor from 0.87 to 0.95 lagging, confirming reduced reactive losses.
+        I’m <strong>Gift</strong>, an <strong>Electrical Engineering graduate specializing in Power Systems</strong> from the Cape Peninsula University of Technology (CPUT). I am passionate about combining electrical engineering principles with modern digital technologies to design, simulate, automate, and improve real-world energy systems.
       </p>
+
+      <p>
+        My work spans <strong>renewable-energy modeling</strong>, <strong>power-system simulation</strong>, <strong>control-system analysis</strong>, and <strong>full-stack software development</strong>. I use engineering tools such as <strong>MATLAB/Simulink</strong>, <strong>DIgSILENT PowerFactory</strong>, and <strong>SAM</strong>, together with software technologies such as <strong>React, Node.js, Python, MySQL, Firebase, and cloud deployment platforms</strong>.
+      </p>
+
+      <p>
+        I approach projects with a systems mindset: understanding the engineering problem, modeling the behavior, building usable tools, and presenting results clearly through dashboards, reports, and interactive applications.
+      </p>
+
+      <div class="highlight-panel">
+        <div class="highlight-item">
+          <strong>Engineering Focus</strong>
+          <span>Power systems, PV design, battery systems, simulations, and practical energy analysis.</span>
+        </div>
+
+        <div class="highlight-item">
+          <strong>Software Focus</strong>
+          <span>React, Node.js, dashboards, APIs, authentication, databases, and deployment workflows.</span>
+        </div>
+
+        <div class="highlight-item">
+          <strong>Working Style</strong>
+          <span>Practical, detail-oriented, data-driven, and focused on reliable real-world outcomes.</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="loadflowModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('loadflowModal')">&times;</span>
-      <h2>Load-Flow & Short-Circuit Analysis</h2>
-      <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="LOAD_FLOW_MATLAB.png" alt="MATLAB Load Flow Results" class="modal-img" onclick="openLightbox(this.src)">
-      <img src="LOAD_FLOW_DIGSILENT.jpg" alt="DIgSILENT Load Flow Results" class="modal-img" onclick="openLightbox(this.src)">
-      <p>
-        A comparative study using MATLAB and DIgSILENT PowerFactory to analyze voltage profiles, current magnitudes, and fault conditions in a 33/3.3 kV network. Results confirmed consistent analytical performance and showcased the advantage of DIgSILENT for grid fault visualization.
-      </p>
+  <div id="skills" class="content">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-intro">
+      A mix of engineering, programming, data, cloud, and practical system-development skills.
+    </p>
+
+    <div class="skills">
+      <div class="card">
+        <h3>Programming Languages</h3>
+        <p>R, JavaScript, Python, SQL, VHDL</p>
+      </div>
+
+      <div class="card">
+        <h3>Frameworks & Libraries</h3>
+        <p>React, Node.js, Express.js, Bootstrap, Dash, Plotly</p>
+      </div>
+
+      <div class="card">
+        <h3>Version Control</h3>
+        <p>Git, GitHub, project repositories, deployment workflows</p>
+      </div>
+
+      <div class="card">
+        <h3>Engineering Tools</h3>
+        <p>MATLAB, Simulink, DIgSILENT PowerFactory, SAM, Proteus, Quartus Prime</p>
+      </div>
+
+      <div class="card">
+        <h3>Cloud & Hosting</h3>
+        <p>Microsoft Azure, Google Cloud, Render, Firebase</p>
+      </div>
+
+      <div class="card">
+        <h3>API Integration</h3>
+        <p>REST APIs, Open-Meteo, Google services, Microsoft services, custom backend APIs</p>
+      </div>
     </div>
   </div>
 
-  <div id="motorModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('motorModal')">&times;</span>
-      <h2>Single-Phase Induction-Motor Simulation</h2>
-      <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="MOTOR_SIMULATION_PIC.png" alt="Motor Simulation Diagram" class="modal-img" onclick="openLightbox(this.src)">
-      <p>
-        MATLAB/Simulink model of a capacitor-start single-phase induction motor analyzed for torque, slip, and efficiency. Results verified against experimental data from lab tests, confirming the validity of the simulated performance curve.
-      </p>
+  <div id="projects" class="content">
+    <h2>My Projects</h2>
+    <p>
+      This portfolio highlights multidisciplinary projects built using engineering and software technologies. From power-system simulations and renewable-energy modeling to full-stack platforms and dashboards, each project demonstrates practical problem-solving and system design.
+    </p>
+
+    <div class="tabs">
+      <button class="tab-btn active" type="button" onclick="openProjectTab(event, 'power')">Power Systems & Renewable Energy</button>
+      <button class="tab-btn" type="button" onclick="openProjectTab(event, 'software')">Software & Full-Stack Applications</button>
+    </div>
+
+    <div id="power" class="tab-content active">
+      <div class="projects">
+        <div class="card">
+          <h3>Design and Simulation of a Residential Rooftop PV System in Kirstenhof, Cape Town</h3>
+          <p>
+            Developed and simulated a residential rooftop PV system with battery energy storage in MATLAB/Simulink and SAM, focusing on reliability, grid dependency, and feasibility.
+          </p>
+          <button class="btn" type="button" onclick="openModal('microgridModal')">View Details</button>
+        </div>
+
+        <div class="card">
+          <h3>Load-Flow & Short-Circuit Analysis</h3>
+          <p>
+            Comparative MATLAB and DIgSILENT PowerFactory study evaluating voltage profiles, fault currents, and network losses in a distribution system.
+          </p>
+          <button class="btn" type="button" onclick="openModal('loadflowModal')">Explore Results</button>
+        </div>
+
+        <div class="card">
+          <h3>Power-Factor Correction Study</h3>
+          <p>
+            Simulated a 33 kV radial feeder with capacitor-bank compensation to improve voltage regulation and reduce reactive-power flow.
+          </p>
+          <button class="btn" type="button" onclick="openModal('pfcModal')">View Summary</button>
+        </div>
+
+        <div class="card">
+          <h3>Single-Phase Induction-Motor Simulation</h3>
+          <p>
+            Built a MATLAB/Simulink model to study torque-speed characteristics, slip behavior, and efficiency under different load conditions.
+          </p>
+          <button class="btn" type="button" onclick="openModal('motorModal')">View Model</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="software" class="tab-content">
+      <div class="projects">
+        <div class="card">
+          <h3>Solar App</h3>
+          <p>
+            A solar-performance web app that analyzes location-based solar potential, estimates energy savings, and visualizes daily output.
+          </p>
+          <a class="btn" href="https://solar-app-acls.onrender.com/" target="_blank" rel="noopener">Get Started</a>
+        </div>
+
+        <div class="card">
+          <h3>Vehicle-Charging Dashboard</h3>
+          <p>
+            EV-charging management platform with station scheduling, availability tracking, and charging-session analytics.
+          </p>
+          <a class="btn" href="https://charging-stations.onrender.com/" target="_blank" rel="noopener">Explore Now</a>
+        </div>
+
+        <div class="card">
+          <h3>Comprehensive Energy Report</h3>
+          <p>
+            Interactive dashboard analyzing electricity production, CO₂ emissions, and renewable integration across Africa.
+          </p>
+          <a class="btn" href="https://electric-dash-1.onrender.com/" target="_blank" rel="noopener">Read Report</a>
+        </div>
+
+        <div class="card">
+          <h3>Bursary-Management Platform</h3>
+          <p>
+            Full-stack system for managing bursary applications, student records, role-based login, notifications, and documents.
+          </p>
+          <a class="btn" href="https://bursary-frontend.onrender.com" target="_blank" rel="noopener">Visit Platform</a>
+        </div>
+
+        <div class="card">
+          <h3>Invoice-Builder App</h3>
+          <p>
+            Smart invoicing solution with custom templates, QR codes, digital signatures, and PDF export.
+          </p>
+          <a class="btn" href="https://invoice-front-mn5z.onrender.com/" target="_blank" rel="noopener">Generate Invoice</a>
+        </div>
+
+        <div class="card">
+          <h3>Firebase Auth App</h3>
+          <p>
+            Secure authentication demo with Google, GitHub, and Microsoft login options using Firebase Auth.
+          </p>
+          <a class="btn" href="https://auth-gift.onrender.com" target="_blank" rel="noopener">Try It Out</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="pfcModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('pfcModal')">&times;</span>
+        <h2>Power-Factor Correction Study</h2>
+        <a class="btn" href="POWER_FACTOR_CORRECTION.pdf" target="_blank" rel="noopener">View Full Report</a>
+        <img src="DIgSILENT_POWER_CORRECTION_IMAGE.png" alt="Power factor simulation" class="modal-img" onclick="openLightbox(this.src)">
+        <p>
+          This study modeled a 33 kV radial feeder in MATLAB and DIgSILENT PowerFactory to evaluate the effect of capacitor-bank compensation on voltage regulation and system power factor. Adding a 0.63 MVAr capacitor improved voltage to 0.977 p.u. and raised power factor from 0.87 to 0.95 lagging, confirming reduced reactive losses.
+        </p>
+      </div>
+    </div>
+
+    <div id="loadflowModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loadflowModal')">&times;</span>
+        <h2>Load-Flow & Short-Circuit Analysis</h2>
+        <a class="btn" href="LOAD_FLOW_AND_SHORT_CIRCUIT_STUDY.pdf" target="_blank" rel="noopener">View Full Report</a>
+        <img src="LOAD_FLOW_MATLAB.png" alt="MATLAB load flow results" class="modal-img" onclick="openLightbox(this.src)">
+        <img src="LOAD_FLOW_DIGSILENT.jpg" alt="DIgSILENT load flow results" class="modal-img" onclick="openLightbox(this.src)">
+        <p>
+          A comparative study using MATLAB and DIgSILENT PowerFactory to analyze voltage profiles, current magnitudes, and fault conditions in a 33/3.3 kV network. Results confirmed consistent analytical performance and showcased the advantage of DIgSILENT for grid fault visualization.
+        </p>
+      </div>
+    </div>
+
+    <div id="motorModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('motorModal')">&times;</span>
+        <h2>Single-Phase Induction-Motor Simulation</h2>
+        <a class="btn" href="MOTOR_SIMULATION.pdf" target="_blank" rel="noopener">View Full Report</a>
+        <img src="MOTOR_SIMULATION_PIC.png" alt="Motor simulation diagram" class="modal-img" onclick="openLightbox(this.src)">
+        <p>
+          MATLAB/Simulink model of a capacitor-start single-phase induction motor analyzed for torque, slip, and efficiency. Results were compared against experimental lab data to validate the simulated performance curve.
+        </p>
+      </div>
+    </div>
+
+    <div id="microgridModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('microgridModal')">&times;</span>
+        <h2>Design and Simulation of a Residential Rooftop PV System in Kirstenhof, Cape Town</h2>
+        <a class="btn" href="GA_3_Final_Project_241297095.pdf" target="_blank" rel="noopener">View Full Report</a>
+        <img src="FINAL_YEAR_PROJECT_MATLAB_DESIGN.png" alt="Residential PV system design" class="modal-img" onclick="openLightbox(this.src)">
+        <p>
+          This project focuses on the design and simulation of a residential rooftop PV system with battery energy storage, located in Kirstenhof, Cape Town. The main goal is to improve energy reliability, reduce grid dependence, and assess the technical and financial feasibility of residential PV systems under local operating conditions.
+        </p>
+      </div>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+      <img src="" alt="Expanded project image">
     </div>
   </div>
-
-  <div id="microgridModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('microgridModal')">&times;</span>
-      <h2>Design and Simulation of a Residential Rooftop PV System in Kirstenhof, Cape Town</h2>
-      <a class="btn" href="GA_3_Final_Project_241297095.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
-      <img src="FINAL_YEAR_PROJECT_MATLAB_DESIGN.png" alt="Residential PV System Design" class="modal-img" onclick="openLightbox(this.src)">
-      <p>
-        This project focuses on the design and simulation of a residential rooftop PV system with battery energy storage, located in Kirstenhof, Cape Town. The main goal is to improve energy reliability, reduce grid dependence, and assess the technical and financial feasibility of such systems under local operating conditions. The system includes a PV array, hybrid inverter, and battery storage unit, configured to optimize energy generation, storage, and utilization. By simulating the system in MATLAB Simulink and conducting a financial evaluation in the System Advisor Model (SAM), this study provides practical insights into how residential PV systems can be optimized for better performance and cost-effectiveness.
-      </p>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <img src="" alt="Expanded Image">
-  </div>
-
-  <!-- ===== JS for Tabs, Modals, and Lightbox ===== -->
-  <script>
-    function openTab(evt, tabName) {
-      const tabContents = document.querySelectorAll('.tab-content');
-      const tabBtns = document.querySelectorAll('.tab-btn');
-      tabContents.forEach(t => t.classList.remove('active'));
-      tabBtns.forEach(b => b.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = "block";
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (event.target === modal) modal.style.display = "none";
-      });
-    };
-
-    // Lightbox
-    function openLightbox(src) {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.style.display = 'flex';
-      lightbox.querySelector('img').src = src;
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-  </script>
-</div>
-
-
-
-
-
-
-
-
 
   <div id="videos" class="content">
     <h2>Project Demo Videos</h2>
     <p>
-      Explore short demo videos showcasing the key features of my applications — from solar energy and EV dashboards to bursary systems and authentication flows.
+      Explore short demo videos showcasing key features of my applications, from solar energy and EV dashboards to bursary systems and authentication flows.
     </p>
+
     <div class="certificates">
       <div class="card">
         <h3>Invoice Builder Demo</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/c6KcsdUHa24"
-          title="Invoice Builder Demo" frameborder="0" allowfullscreen></iframe>
-        <p>A smart invoice builder with custom templates, QR code, and PDF export. Built using React + pdfMake.</p>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/c6KcsdUHa24" title="Invoice Builder Demo" allowfullscreen></iframe>
+        <p>A smart invoice builder with custom templates, QR code, and PDF export. Built using React and pdfMake.</p>
       </div>
 
       <div class="card">
         <h3>Solar App Demo</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Yt0Hf_MGnR0"
-          title="Solar App Demo" frameborder="0" allowfullscreen></iframe>
-        <p>Solar performance estimator using Open Meteo API, React, and AI-assisted yield analysis.</p>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/Yt0Hf_MGnR0" title="Solar App Demo" allowfullscreen></iframe>
+        <p>Solar performance estimator using Open-Meteo API, React, and AI-assisted yield analysis.</p>
       </div>
 
       <div class="card">
         <h3>Electricity Dashboard</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Kb84VqwGP74"
-          title="Electricity Dashboard" frameborder="0" allowfullscreen></iframe>
-        <p>CO₂ emissions and renewable energy insights dashboard using Dash and Plotly.</p>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/Kb84VqwGP74" title="Electricity Dashboard" allowfullscreen></iframe>
+        <p>CO₂ emissions and renewable-energy insights dashboard using Dash and Plotly.</p>
       </div>
 
       <div class="card">
         <h3>Vehicle Charging Dashboard</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/PsvDQkTaBVk"
-          title="Vehicle Charging Dashboard" frameborder="0" allowfullscreen></iframe>
-        <p>EV charger scheduling and monitoring platform for managing station availability.</p>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/PsvDQkTaBVk" title="Vehicle Charging Dashboard" allowfullscreen></iframe>
+        <p>EV charger scheduling and monitoring platform for station availability.</p>
       </div>
 
       <div class="card">
         <h3>Bursary Management System</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/Q5lUxNgmIQc"
-          title="Bursary Management System" frameborder="0" allowfullscreen></iframe>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/Q5lUxNgmIQc" title="Bursary Management System" allowfullscreen></iframe>
         <p>Full-stack bursary management app with admin workflows, document uploads, and email alerts.</p>
       </div>
 
       <div class="card">
         <h3>Authentication Demo</h3>
-        <iframe width="100%" height="220" src="https://www.youtube.com/embed/0eY_K-nSv0A"
-          title="Authentication Demo" frameborder="0" allowfullscreen></iframe>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/0eY_K-nSv0A" title="Authentication Demo" allowfullscreen></iframe>
         <p>Firebase-based login system with role detection, protected routes, and social logins.</p>
       </div>
     </div>
   </div>
 
   <div id="certificates" class="content">
+    <h2 class="section-title">Certificates & Academic Documents</h2>
+    <p class="section-intro">
+      View my professional, academic, and technical certificates. The newly uploaded PDF files have been added here.
+    </p>
+
     <div class="certificates">
-      <div class="card">
-        <h3>Google Analytics Certificate</h3>
-        <p>View or download the certificate file below.</p>
-        <a class="btn" href="Screenshot (445).png" target="_blank" rel="noopener">View Certificate (PNG)</a>
+      <div class="card certificate-card">
+        <div>
+          <div class="certificate-icon">E</div>
+          <div class="card-meta">
+            <span class="tag pdf">PDF</span>
+            <span class="tag">Professional</span>
+          </div>
+          <h3>ECSA Certificate</h3>
+          <p>View or download the ECSA certificate document.</p>
+        </div>
+        <div class="certificate-actions">
+          <a class="btn" href="ECSA_CERTIFICATE_GIFT.pdf" target="_blank" rel="noopener">View PDF</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Microsoft Azure Data Fundamentals</h3>
-        <p>View or download the certificate file below.</p>
-        <a class="btn" href="Screenshot (446).png" target="_blank" rel="noopener">View Certificate (PNG)</a>
+
+      <div class="card certificate-card">
+        <div>
+          <div class="certificate-icon">C</div>
+          <div class="card-meta">
+            <span class="tag pdf">PDF</span>
+            <span class="tag">Engineering</span>
+          </div>
+          <h3>ECSA Candidate Certificate</h3>
+          <p>View or download the ECSA candidate certificate document.</p>
+        </div>
+        <div class="certificate-actions">
+          <a class="btn" href="ECSA_CAND_CERTIFICATE.pdf" target="_blank" rel="noopener">View PDF</a>
+        </div>
+      </div>
+
+      <div class="card certificate-card">
+        <div>
+          <div class="certificate-icon">D</div>
+          <div class="card-meta">
+            <span class="tag pdf">PDF</span>
+            <span class="tag">Academic</span>
+          </div>
+          <h3>Degree Certificate</h3>
+          <p>View or download the degree certificate document.</p>
+        </div>
+        <div class="certificate-actions">
+          <a class="btn" href="Degree_certificate.pdf" target="_blank" rel="noopener">View PDF</a>
+        </div>
+      </div>
+
+      <div class="card certificate-card">
+        <div>
+          <div class="certificate-icon">G</div>
+          <div class="card-meta">
+            <span class="tag">PNG</span>
+            <span class="tag">Data</span>
+          </div>
+          <h3>Google Analytics Certificate</h3>
+          <p>View or download the Google Analytics certificate image.</p>
+        </div>
+        <div class="certificate-actions">
+          <a class="btn" href="Screenshot (445).png" target="_blank" rel="noopener">View PNG</a>
+        </div>
+      </div>
+
+      <div class="card certificate-card">
+        <div>
+          <div class="certificate-icon">A</div>
+          <div class="card-meta">
+            <span class="tag">PNG</span>
+            <span class="tag">Cloud</span>
+          </div>
+          <h3>Microsoft Azure Data Fundamentals</h3>
+          <p>View or download the Microsoft Azure Data Fundamentals certificate image.</p>
+        </div>
+        <div class="certificate-actions">
+          <a class="btn" href="Screenshot (446).png" target="_blank" rel="noopener">View PNG</a>
+        </div>
       </div>
     </div>
   </div>
@@ -682,9 +1061,12 @@
   <div id="contact" class="content">
     <h2>Contact Me</h2>
     <p>Feel free to reach out via email, phone, or connect with me on GitHub.</p>
-    <p><strong>Email:</strong> <a href="mailto:****@gmail.com">rethab***@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+*****">067***</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Gift78655" target="_blank" rel="noopener">github.com/Gift78655</a></p>
+
+    <div class="contact-panel">
+      <p><strong>Email:</strong> <a href="mailto:****@gmail.com">rethab***@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+*****">067***</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Gift78655" target="_blank" rel="noopener">github.com/Gift78655</a></p>
+    </div>
   </div>
 
   <footer>
@@ -692,18 +1074,107 @@
   </footer>
 
   <script>
-    const navLinks = document.querySelectorAll('nav a');
-    const contents = document.querySelectorAll('.content');
+    const navLinks = document.querySelectorAll("nav a");
+    const contents = document.querySelectorAll(".content");
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        link.classList.add('active');
-        contents.forEach(content => content.classList.remove('active'));
-        document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+    function toggleTheme() {
+      const currentTheme = document.body.getAttribute("data-theme") || "dark";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      document.body.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("cv-theme", nextTheme);
+    }
+
+    function restoreTheme() {
+      const savedTheme = localStorage.getItem("cv-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.body.setAttribute("data-theme", savedTheme);
+      }
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        navLinks.forEach((nav) => nav.classList.remove("active"));
+        link.classList.add("active");
+
+        contents.forEach((content) => content.classList.remove("active"));
+
+        const tabId = link.getAttribute("data-tab");
+        const targetTab = document.getElementById(tabId);
+
+        if (targetTab) {
+          targetTab.classList.add("active");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       });
     });
+
+    function openProjectTab(event, tabName) {
+      const tabContents = document.querySelectorAll(".tab-content");
+      const tabButtons = document.querySelectorAll(".tab-btn");
+
+      tabContents.forEach((tab) => tab.classList.remove("active"));
+      tabButtons.forEach((button) => button.classList.remove("active"));
+
+      const selectedTab = document.getElementById(tabName);
+
+      if (selectedTab) {
+        selectedTab.classList.add("active");
+      }
+
+      event.currentTarget.classList.add("active");
+    }
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = "block";
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    window.addEventListener("click", function(event) {
+      const modals = document.querySelectorAll(".modal");
+      modals.forEach((modal) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+
+    window.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".modal").forEach((modal) => {
+          modal.style.display = "none";
+        });
+        closeLightbox();
+      }
+    });
+
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      if (!lightbox) return;
+
+      lightbox.style.display = "flex";
+      lightbox.querySelector("img").src = src;
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      if (!lightbox) return;
+
+      lightbox.style.display = "none";
+      lightbox.querySelector("img").src = "";
+    }
+
+    restoreTheme();
   </script>
 </body>
 </html>
